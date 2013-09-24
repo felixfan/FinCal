@@ -1,0 +1,27 @@
+\name{hpr}
+\alias{hpr}
+\title{Computing HPR, the holding period return}
+\usage{
+  hpr(ev, bv, cfr = 0)
+}
+\arguments{
+  \item{ev}{ending value}
+
+  \item{bv}{beginning value}
+
+  \item{cfr}{cash flow received}
+}
+\description{
+  Computing HPR, the holding period return
+}
+\examples{
+hpr(ev=33,bv=30,cfr=0.5)
+}
+\seealso{
+  \code{\link{twrr}}
+
+  \code{\link{hpr2ear}}
+
+  \code{\link{hpr2mmy}}
+}
+

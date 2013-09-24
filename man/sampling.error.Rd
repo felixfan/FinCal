@@ -1,0 +1,18 @@
+\name{sampling.error}
+\alias{sampling.error}
+\title{Computing Sampling error}
+\usage{
+  sampling.error(sm, mu)
+}
+\arguments{
+  \item{sm}{sample mean}
+
+  \item{mu}{population mean}
+}
+\description{
+  Computing Sampling error
+}
+\examples{
+sampling.error(sm=0.45, mu=0.5)
+}
+

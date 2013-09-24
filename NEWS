@@ -1,0 +1,60 @@
+FinCal 0.4
+===========
+Released 2013-Sept-04
+
+revised @examples, so multiple examples for some functions call be displayed
+
+Cost of goods sold and ending inventory under three methods (FIFO,LIFO,Weighted average)
+
+Methods
+* add cogs
+
+FinCal 0.3
+===========
+Released 2013-Aug-13
+
+Methods for downloading historical stock prices from Yahoo finance and Google finance, technical analysis.
+
+Methods
+* add wpr, 
+* add geometric.mean, harmonic.mean
+* add SFRatio, Sharpe.ratio, coefficient.variation
+* add sampling.error
+* add get.ohlc.yahoo, get.ohlc.google
+* add get.ohlcs.yahoo, get.ohlcs.google
+* add date.breaks
+* add lineChart, lineChartMult
+* add volumeChart, candlestickChart
+
+FinCal 0.2
+===========
+Released 2013-Aug-01
+
+Revised function manual to roxygen2 format.
+
+Methods
+* add r.perpetuity, discount.rate
+* add npv, irr
+* add hpr, twrr
+* add hpr2ear, hpr2mmy
+* add bdy, bdy2mmy
+* add mmy2hpr, ear2hpr
+* add hpr2bey, ear2bey
+
+FinCal 0.1
+===========
+Released 2013-July-16
+
+First official release of the FinCal R package. 
+Financial calculator for time value money. 
+Tools for computational finance.
+
+Methods:
+* pv.simple, fv.simple
+* pv.annuity, fv.annuity
+* pv.perpetuity
+* pv, fv
+* fv.uneven, pv.uneven
+* pmt, n.period
+* r.continuous, r.norminal
+* ear, ear.continuous

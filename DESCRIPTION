@@ -1,0 +1,28 @@
+Package: FinCal
+Title: Time Value of Money, time series analysis and Computational
+        Finance
+Description: Package for time value of money calculation, time series analysis
+    and computational finance
+Version: 0.4
+Date: 2013-09-04
+Author: Felix Yanhui Fan <nolanfyh@gmail.com>
+Depends: ggplot2, reshape2, scales, RCurl
+Maintainer: Felix Yanhui Fan <nolanfyh@gmail.com>
+License: GPL (>= 2)
+URL: http://rpubs.com/Felix/7120
+Collate: 'SFRatio.R' 'Sharpe.ratio.R' 'bdy.R' 'bdy2mmy.R'
+        'candlestickChart.R' 'coefficient.variation.R' 'cogs.R'
+        'date.breaks.R' 'discount.rate.R' 'ear.R' 'ear.continuous.R'
+        'ear2bey.R' 'ear2hpr.R' 'fv.R' 'fv.annuity.R' 'fv.simple.R'
+        'fv.uneven.R' 'geometric.mean.R' 'get.ohlc.google.R'
+        'get.ohlc.yahoo.R' 'get.ohlcs.google.R' 'get.ohlcs.yahoo.R'
+        'harmonic.mean.R' 'hpr.R' 'hpr2bey.R' 'hpr2ear.R' 'hpr2mmy.R'
+        'irr.R' 'lineChart.R' 'lineChartMult.R' 'mmy2hpr.R'
+        'n.period.R' 'npv.R' 'pmt.R' 'pv.R' 'pv.annuity.R'
+        'pv.perpetuity.R' 'pv.simple.R' 'pv.uneven.R' 'r.continuous.R'
+        'r.norminal.R' 'r.perpetuity.R' 'sampling.error.R' 'twrr.R'
+        'volumeChart.R' 'wpr.R'
+Packaged: 2013-09-04 01:40:45 UTC; alice
+NeedsCompilation: no
+Repository: CRAN
+Date/Publication: 2013-09-04 07:36:49

@@ -1,0 +1,30 @@
+\name{fv.annuity}
+\alias{fv.annuity}
+\title{Estimate future value of an annuity}
+\usage{
+  fv.annuity(r, n, pmt, type = 0)
+}
+\arguments{
+  \item{r}{discount rate, or the interest rate at which the
+  amount will be compounded each period}
+
+  \item{n}{number of periods}
+
+  \item{pmt}{payment per period}
+
+  \item{type}{payments occur at the end of each period
+  (type=0); payments occur at the beginning of each period
+  (type=1)}
+}
+\description{
+  Estimate future value of an annuity
+}
+\examples{
+fv.annuity(0.03,12,-1000)
+
+fv.annuity(r=0.03,n=12,pmt=-1000,type=1)
+}
+\seealso{
+  \code{\link{fv}}
+}
+

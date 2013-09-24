@@ -1,0 +1,32 @@
+\name{get.ohlcs.yahoo}
+\alias{get.ohlcs.yahoo}
+\title{Batch download stock prices from Yahoo Finance (open, high, low, close, volume, adjusted)}
+\usage{
+  get.ohlcs.yahoo(symbols, start = "firstDay",
+    end = "today", freq = "d")
+}
+\arguments{
+  \item{symbols}{symbols of stock, e.g. AAPL, GOOG, SPX}
+
+  \item{start}{start date, e.g., 2013-07-31}
+
+  \item{end}{end date, e.g., 2013-08-06}
+
+  \item{freq}{time interval, e.g., d:daily, w:weekly,
+  m:monthly}
+}
+\description{
+  Batch download stock prices from Yahoo Finance (open,
+  high, low, close, volume, adjusted)
+}
+\examples{
+get.ohlcs.yahoo(symbols=c("AAPL","GOOG","SPY"),freq="d")
+
+get.ohlcs.yahoo(symbols=c("AAPL","GOOG","SPY"),start="2013-01-01",freq="m")
+}
+\seealso{
+  \code{\link{get.ohlc.yahoo}}
+
+  \code{\link{get.ohlcs.google}}
+}
+
