@@ -1,0 +1,23 @@
+\name{gpm}
+\alias{gpm}
+\title{gross profit margin -- Evaluate a company's financial performance}
+\usage{
+  gpm(gp, rv)
+}
+\arguments{
+  \item{gp}{gross profit, equal to revenue minus cost of
+  goods sold (cogs)}
+
+  \item{rv}{revenue (sales)}
+}
+\description{
+  gross profit margin -- Evaluate a company's financial
+  performance
+}
+\examples{
+gpm(gp=1000,rv=20000)
+}
+\seealso{
+  \code{\link{npm}}
+}
+

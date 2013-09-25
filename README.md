@@ -1,23 +1,16 @@
 Examples of using FinCal
 ========================================================
 Created on Fri Jul 19 2013   
-Revised on Tue Sep 24 14:55:45 2013   
+Updated on Wed Sep 25 15:52:34 2013   
 
 
 FinCal -- Time Value of Money, time series analysis and Computational Finance
 --------------------------------------------------------------------------------    
-FinCal is available on [CRAN] (http://cran.r-project.org/web/packages/FinCal/)
-
+FinCal is available on [CRAN] (http://cran.r-project.org/web/packages/FinCal/) and [GitHub](http://felixfan.github.io/FinCal/)
 
 
 ```r
 library(FinCal)
-```
-
-```
-Loading required package: ggplot2 Loading required package: reshape2
-Loading required package: scales Loading required package: RCurl Loading
-required package: bitops
 ```
 
 
@@ -29,28 +22,36 @@ ls("package:FinCal")
 
 ```
  [1] "bdy"                   "bdy2mmy"              
- [3] "candlestickChart"      "coefficient.variation"
- [5] "cogs"                  "date.breaks"          
- [7] "discount.rate"         "ear"                  
- [9] "ear.continuous"        "ear2bey"              
-[11] "ear2hpr"               "fv"                   
-[13] "fv.annuity"            "fv.simple"            
-[15] "fv.uneven"             "geometric.mean"       
-[17] "get.ohlc.google"       "get.ohlc.yahoo"       
-[19] "get.ohlcs.google"      "get.ohlcs.yahoo"      
-[21] "harmonic.mean"         "hpr"                  
-[23] "hpr2bey"               "hpr2ear"              
-[25] "hpr2mmy"               "irr"                  
-[27] "lineChart"             "lineChartMult"        
-[29] "mmy2hpr"               "n.period"             
-[31] "npv"                   "pmt"                  
-[33] "pv"                    "pv.annuity"           
-[35] "pv.perpetuity"         "pv.simple"            
-[37] "pv.uneven"             "r.continuous"         
-[39] "r.norminal"            "r.perpetuity"         
-[41] "sampling.error"        "SFRatio"              
-[43] "Sharpe.ratio"          "twrr"                 
-[45] "volumeChart"           "wpr"                  
+ [3] "candlestickChart"      "cash.ratio"           
+ [5] "coefficient.variation" "cogs"                 
+ [7] "current.ratio"         "date.breaks"          
+ [9] "ddb"                   "debt.ratio"           
+[11] "diluted.EPS"           "discount.rate"        
+[13] "ear"                   "ear.continuous"       
+[15] "ear2bey"               "ear2hpr"              
+[17] "EPS"                   "financial.leverage"   
+[19] "fv"                    "fv.annuity"           
+[21] "fv.simple"             "fv.uneven"            
+[23] "geometric.mean"        "get.ohlc.google"      
+[25] "get.ohlc.yahoo"        "get.ohlcs.google"     
+[27] "get.ohlcs.yahoo"       "gpm"                  
+[29] "harmonic.mean"         "hpr"                  
+[31] "hpr2bey"               "hpr2ear"              
+[33] "hpr2mmy"               "irr"                  
+[35] "iss"                   "lineChart"            
+[37] "lineChartMult"         "lt.d2e"               
+[39] "mmy2hpr"               "n.period"             
+[41] "npm"                   "npv"                  
+[43] "pmt"                   "pv"                   
+[45] "pv.annuity"            "pv.perpetuity"        
+[47] "pv.simple"             "pv.uneven"            
+[49] "quick.ratio"           "r.continuous"         
+[51] "r.norminal"            "r.perpetuity"         
+[53] "sampling.error"        "SFRatio"              
+[55] "Sharpe.ratio"          "slde"                 
+[57] "total.d2e"             "twrr"                 
+[59] "volumeChart"           "was"                  
+[61] "wpr"                  
 ```
 
 
@@ -699,5 +700,98 @@ $costOfGoods
 
 $endingInventory
 [1] 114
+```
+
+
+Example 28 Depreciation Expense Recognition
+----------------------------------------------
+Methods: straight line depreciation method, double-declining balance (DDB)   
+e.g.,   
+One Company recently purchased a machine at a cost of $9,800. The machine is expected to have a residual value of $2,000 at the end of its useful life in five years. What is the depreciation expense for all five years using two different menthods?  
+
+
+```r
+# straight line depreciation method
+slde(cost = 9800, rv = 2000, t = 5)
+```
+
+```
+[1] 1560
+```
+
+```r
+# double-declining balance (DDB)
+ddb(cost = 9800, rv = 2000, t = 5)
+```
+
+```
+     t    ddb
+[1,] 1 3920.0
+[2,] 2 2352.0
+[3,] 3 1411.2
+[4,] 4  116.8
+[5,] 5    0.0
+```
+
+
+Example 29 Weighted average shares and EPS
+---------------------------------------------
+One company has net income of $100,000 and paid $10,000 cash dividends to its preferred shareholders and $10,750 cash dividends to its common shareholders. At the beginning of the year, there were 20,000 shares of common stock outstanding. 20,000 new shares were issued on July 1 . what is the weighted average shares and basic EPS?   
+
+```r
+# weighted average shares
+was = was(ns = c(20000, 20000), nm = c(12, 6))
+was
+```
+
+```
+[1] 30000
+```
+
+```r
+# basic EPS
+EPS(ni = 1e+05, pd = 10000, w = was)
+```
+
+```
+[1] 3
+```
+
+
+One company has 15,000 shares outstanding all year. It had 2,000 outstanding warrants all year, convertible into one share each at $20 per share. The year-end price of stock was $40, and the average stock price was $30. What effect will these warrants have on the weighted average number of shares?
+
+```r
+iss(amp = 30, ep = 20, n = 2000)
+```
+
+```
+[1] 666.7
+```
+
+
+During 2013, X reported net income of $231,200 and had 400,000 shares of
+common stock outstanding for the entire year. X had 2,000 shares of 10%, $100
+par convertible preferred stock, convertible into 40 shares each, outstanding for the
+entire year. X also had 1200, 7%, $1,000 par value convertible bonds, convertible
+into 100 shares each, outstanding for the entire year. Finally, X had 20,000 stock
+options outstanding during the year. Each option is convertible into one share of
+stock at $15 per share. The average market price of the stock for the year was $20. The tax rate is 40%. What are X's basic and diluted EPS?
+
+```r
+EPS(ni = 231200, pd = 2000 * 0.1 * 100, w = 4e+05)
+```
+
+```
+[1] 0.528
+```
+
+```r
+iss = iss(amp = 20, ep = 15, n = 20000)
+diluted.EPS(ni = 231200, pd = 2000 * 0.1 * 100, cpd = 2000 * 0.1 * 100, cdi = 1200 * 
+    0.07 * 1000, tax = 0.4, w = 4e+05, cps = 2000 * 40, cds = 1200 * 100, iss = iss)
+```
+
+```
+[1] 0.4655
 ```
 

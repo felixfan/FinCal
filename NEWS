@@ -1,48 +1,89 @@
+FinCal 0.5
+================================================================
+Released 2013-Sept-25
+
+Depreciation Expense Recognition Methods
+* add slde
+* add ddb
+
+Earnings Per Share (EPS) Methods
+* add EPS
+* add diluted.EPS
+* add was
+* add iss
+
+Evaluate a company's financial performance
+* add gpm
+* add npm
+
+Liquidity ratios measure the firm's ability to satisfy its short-term obligations as they come due.
+* add current.ratio
+* add cash.ratio
+* add quick.ratio
+
+Solvency ratios measure the firm's ability to satisfy its long-term obligations.
+* add lt.d2e
+* add total.d2e
+* add debt.ratio
+* add financial.leverage
+
 FinCal 0.4
-===========
+================================================================
 Released 2013-Sept-04
 
 revised @examples, so multiple examples for some functions call be displayed
 
 Cost of goods sold and ending inventory under three methods (FIFO,LIFO,Weighted average)
-
-Methods
 * add cogs
 
 FinCal 0.3
-===========
+================================================================
 Released 2013-Aug-13
 
 Methods for downloading historical stock prices from Yahoo finance and Google finance, technical analysis.
 
 Methods
 * add wpr, 
-* add geometric.mean, harmonic.mean
-* add SFRatio, Sharpe.ratio, coefficient.variation
+* add geometric.mean
+* add harmonic.mean
+* add SFRatio
+* add Sharpe.ratio
+* add coefficient.variation
 * add sampling.error
-* add get.ohlc.yahoo, get.ohlc.google
-* add get.ohlcs.yahoo, get.ohlcs.google
+* add get.ohlc.yahoo
+* add get.ohlc.google
+* add get.ohlcs.yahoo
+* add get.ohlcs.google
 * add date.breaks
-* add lineChart, lineChartMult
-* add volumeChart, candlestickChart
+* add lineChart
+* add lineChartMult
+* add volumeChart
+* add candlestickChart
 
 FinCal 0.2
-===========
+================================================================
 Released 2013-Aug-01
 
 Revised function manual to roxygen2 format.
 
 Methods
-* add r.perpetuity, discount.rate
-* add npv, irr
-* add hpr, twrr
-* add hpr2ear, hpr2mmy
-* add bdy, bdy2mmy
-* add mmy2hpr, ear2hpr
-* add hpr2bey, ear2bey
+* add r.perpetuity
+* add discount.rate
+* add npv
+* add irr
+* add hpr
+* add twrr
+* add hpr2ear
+* add hpr2mmy
+* add bdy
+* add bdy2mmy
+* add mmy2hpr
+* add ear2hpr
+* add hpr2bey
+* add ear2bey
 
 FinCal 0.1
-===========
+================================================================
 Released 2013-July-16
 
 First official release of the FinCal R package. 
@@ -50,11 +91,18 @@ Financial calculator for time value money.
 Tools for computational finance.
 
 Methods:
-* pv.simple, fv.simple
-* pv.annuity, fv.annuity
+* pv.simple
+* fv.simple
+* pv.annuity
+* fv.annuity
 * pv.perpetuity
-* pv, fv
-* fv.uneven, pv.uneven
-* pmt, n.period
-* r.continuous, r.norminal
-* ear, ear.continuous
+* pv
+* fv
+* fv.uneven
+* pv.uneven
+* pmt
+* n.period
+* r.continuous
+* r.norminal
+* ear
+* ear.continuous
