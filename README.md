@@ -6,7 +6,9 @@ Updated on Wed Sep 25 15:52:34 2013
 
 FinCal -- Time Value of Money, time series analysis and Computational Finance
 --------------------------------------------------------------------------------    
-FinCal is available on [CRAN] (http://cran.r-project.org/web/packages/FinCal/) and [GitHub](http://felixfan.github.io/FinCal/)
+FinCal is available on [CRAN] (http://cran.r-project.org/web/packages/FinCal/) and [GitHub](http://felixfan.github.io/FinCal/)     
+
+[More about me](http://felixfan.github.io)     
 
 
 ```r
