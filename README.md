@@ -11,10 +11,20 @@ FinCal is available on [CRAN] (http://cran.r-project.org/web/packages/FinCal/) a
 [More about me](http://felixfan.github.io)     
 
 
+Install {FinCal}    
+
+```r
+install.packages("FinCal") # from CRAN
+```
+
+```r
+library(devtools)
+install_github("felixfan/FinCal") # from GitHub
+```
+
 ```r
 library(FinCal)
 ```
-
 
 Functions available:    
 
