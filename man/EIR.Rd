@@ -1,8 +1,8 @@
 \name{EIR}
 \alias{EIR}
-\title{Equivalent Interest Rates}
+\title{Equivalent/proportional Interest Rates}
 \usage{
-  EIR(r, n = 1, p = 12)
+EIR(r, n = 1, p = 12, type = c("equivalent", "proportional"))
 }
 \arguments{
   \item{r}{interest rate to be applied n times per year (r
@@ -13,11 +13,14 @@
 
   \item{p}{times that the equivalent rate were compounded
   per year}
+
+  \item{type}{equivalent interest rates
+  ('equivalent',default) or proportional interest rates
+  ('proportional')}
 }
 \description{
-  An interest rate to be applied n times p.a. can be
-  converted to an equivalent rate to be applied p times
-  p.a.
+An interest rate to be applied n times p.a. can be
+converted to an equivalent rate to be applied p times p.a.
 }
 \examples{
 # monthly interest rat equivalent to 5\% compounded per year
@@ -39,5 +42,8 @@ EIR(r=0.05,n=1,p=4)
 
 # quarter interest rate equivalent to 5\% compounded per month
 EIR(r=0.05,n=12,p=4)
+
+# monthly proportional interest rate which is equivalent to a simple annual interest
+EIR(r=0.05,p=12,type='proportional')
 }
 
