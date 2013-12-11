@@ -2,7 +2,7 @@
 \alias{EIR}
 \title{Equivalent/proportional Interest Rates}
 \usage{
-EIR(r, n = 1, p = 12, type = c("equivalent", "proportional"))
+EIR(r, n = 1, p = 12, type = c("e", "p"))
 }
 \arguments{
   \item{r}{interest rate to be applied n times per year (r
@@ -15,8 +15,8 @@ EIR(r, n = 1, p = 12, type = c("equivalent", "proportional"))
   per year}
 
   \item{type}{equivalent interest rates
-  ('equivalent',default) or proportional interest rates
-  ('proportional')}
+  ('e',default) or proportional interest rates
+  ('p')}
 }
 \description{
 An interest rate to be applied n times p.a. can be
@@ -44,6 +44,6 @@ EIR(r=0.05,n=1,p=4)
 EIR(r=0.05,n=12,p=4)
 
 # monthly proportional interest rate which is equivalent to a simple annual interest
-EIR(r=0.05,p=12,type='proportional')
+EIR(r=0.05,p=12,type='p')
 }
 
