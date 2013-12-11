@@ -3,7 +3,7 @@
 #' @param r interest rate to be applied n times per year (r is annual rate!)
 #' @param n times that the interest rate r were compounded per year
 #' @param p times that the equivalent rate were compounded per year
-#' @param type equivalent interest rates ('equivalent',default) or proportional interest rates ('proportional')
+#' @param type equivalent interest rates ('e',default) or proportional interest rates ('p')
 #' @export
 #' @examples
 #' # monthly interest rat equivalent to 5% compounded per year
@@ -27,15 +27,15 @@
 #' EIR(r=0.05,n=12,p=4)
 #' 
 #' # monthly proportional interest rate which is equivalent to a simple annual interest
-#' EIR(r=0.05,p=12,type='proportional')
-EIR <- function(r,n=1,p=12,type=c("equivalent", "proportional")){
+#' EIR(r=0.05,p=12,type='p')
+EIR <- function(r,n=1,p=12,type=c("e", "p")){
   type = match.arg(type)
-  if(type == "equivalent"){
+  if(type == "e"){
     eir=(1+r/n)^(n/p)-1
-  }else if(type == "proportional"){
+  }else if(type == "p"){
     eir=r/p
   }else{
-    stop("type must be 'equivalent' or 'proportional'")
+    stop("type must be 'e' or 'p'")
   }
   return(eir)
 }
