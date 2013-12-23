@@ -2,7 +2,7 @@
 \alias{bdy2mmy}
 \title{Computing money market yield (MMY) for a T-bill}
 \usage{
-  bdy2mmy(bdy, t)
+bdy2mmy(bdy, t)
 }
 \arguments{
   \item{bdy}{bank discount yield}
@@ -10,12 +10,12 @@
   \item{t}{number of days remaining until maturity}
 }
 \description{
-  Computing money market yield (MMY) for a T-bill
+Computing money market yield (MMY) for a T-bill
 }
 \examples{
 bdy2mmy(bdy=0.045,t=120)
 }
 \seealso{
-  \code{\link{bdy}}
+\code{\link{bdy}}
 }
 

@@ -2,7 +2,7 @@
 \alias{cogs}
 \title{Cost of goods sold and ending inventory under three methods (FIFO,LIFO,Weighted average)}
 \usage{
-  cogs(uinv, pinv, units, price, sinv, method = "FIFO")
+cogs(uinv, pinv, units, price, sinv, method = "FIFO")
 }
 \arguments{
   \item{uinv}{units of beginning inventory}
@@ -23,8 +23,8 @@
   IFRS)}
 }
 \description{
-  Cost of goods sold and ending inventory under three
-  methods (FIFO,LIFO,Weighted average)
+Cost of goods sold and ending inventory under three methods
+(FIFO,LIFO,Weighted average)
 }
 \examples{
 cogs(uinv=2,pinv=2,units=c(3,5),price=c(3,5),sinv=7,method="FIFO")

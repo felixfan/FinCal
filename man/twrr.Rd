@@ -2,7 +2,7 @@
 \alias{twrr}
 \title{Computing TWRR, the time-weighted rate of return}
 \usage{
-  twrr(ev, bv, cfr)
+twrr(ev, bv, cfr)
 }
 \arguments{
   \item{ev}{ordered ending value list}
@@ -12,12 +12,12 @@
   \item{cfr}{ordered cash flow received list}
 }
 \description{
-  Computing TWRR, the time-weighted rate of return
+Computing TWRR, the time-weighted rate of return
 }
 \examples{
 twrr(ev=c(120,260),bv=c(100,240),cfr=c(2,4))
 }
 \seealso{
-  \code{\link{hpr}}
+\code{\link{hpr}}
 }
 

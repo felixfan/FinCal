@@ -2,8 +2,7 @@
 \alias{candlestickChart}
 \title{Technical analysts - Candlestick chart: show prices for each period as a continuous line. The box is clear if the closing price is higher than the opening price, or filled red if the closing is lower than the opening price.}
 \usage{
-  candlestickChart(ohlc, start = NULL, end = NULL,
-    main = "", ...)
+candlestickChart(ohlc, start = NULL, end = NULL, main = "", ...)
 }
 \arguments{
   \item{ohlc}{output from get.ohlc.yahoo or
@@ -19,10 +18,10 @@
   \item{...}{Arguments to be passed to methods}
 }
 \description{
-  Technical analysts - Candlestick chart: show prices for
-  each period as a continuous line. The box is clear if the
-  closing price is higher than the opening price, or filled
-  red if the closing is lower than the opening price.
+Technical analysts - Candlestick chart: show prices for
+each period as a continuous line. The box is clear if the
+closing price is higher than the opening price, or filled
+red if the closing is lower than the opening price.
 }
 \examples{
 google <- get.ohlc.yahoo("GOOG",start="2013-07-01",end="2013-08-01"); candlestickChart(google)
@@ -30,8 +29,8 @@ google <- get.ohlc.yahoo("GOOG",start="2013-07-01",end="2013-08-01"); candlestic
 apple <- get.ohlc.google("AAPL",start="2013-07-01",end="2013-08-01"); candlestickChart(apple)
 }
 \seealso{
-  \code{\link{get.ohlc.yahoo}}
+\code{\link{get.ohlc.yahoo}}
 
-  \code{\link{get.ohlc.google}}
+\code{\link{get.ohlc.google}}
 }
 

@@ -2,7 +2,7 @@
 \alias{fv.uneven}
 \title{Computing the future value of an uneven cash flow series}
 \usage{
-  fv.uneven(r, cf)
+fv.uneven(r, cf)
 }
 \arguments{
   \item{r}{stated annual rate}
@@ -10,12 +10,12 @@
   \item{cf}{uneven cash flow}
 }
 \description{
-  Computing the future value of an uneven cash flow series
+Computing the future value of an uneven cash flow series
 }
 \examples{
 fv.uneven(r=0.1, cf=c(-1000, -500, 0, 4000, 3500, 2000))
 }
 \seealso{
-  \code{\link{fv.simple}}
+\code{\link{fv.simple}}
 }
 

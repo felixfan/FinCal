@@ -2,7 +2,7 @@
 \alias{pv.simple}
 \title{Estimate present value (pv) of a single sum}
 \usage{
-  pv.simple(r, n, fv)
+pv.simple(r, n, fv)
 }
 \arguments{
   \item{r}{discount rate, or the interest rate at which the
@@ -13,7 +13,7 @@
   \item{fv}{future value}
 }
 \description{
-  Estimate present value (pv) of a single sum
+Estimate present value (pv) of a single sum
 }
 \examples{
 pv.simple(0.07,10,100)
@@ -21,6 +21,6 @@ pv.simple(0.07,10,100)
 pv.simple(r=0.03,n=3,fv=1000)
 }
 \seealso{
-  \code{\link{pv}}
+\code{\link{pv}}
 }
 

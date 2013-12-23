@@ -2,8 +2,7 @@
 \alias{get.ohlc.google}
 \title{Download stock prices from Google Finance (open, high, low, close, volume)}
 \usage{
-  get.ohlc.google(symbol, start = "2013-01-01",
-    end = "today")
+get.ohlc.google(symbol, start = "2013-01-01", end = "today")
 }
 \arguments{
   \item{symbol}{symbol of stock, e.g. AAPL, GOOG, SPX}
@@ -13,8 +12,8 @@
   \item{end}{end date, e.g., 2013-08-06}
 }
 \description{
-  Download stock prices from Google Finance (open, high,
-  low, close, volume)
+Download stock prices from Google Finance (open, high, low,
+close, volume)
 }
 \examples{
 get.ohlc.google(symbol="AAPL")
@@ -24,8 +23,8 @@ get.ohlc.google(symbol="AAPL",start="2013-08-01")
 get.ohlc.google(symbol="AAPL",start="2013-07-01",end="2013-08-01")
 }
 \seealso{
-  \code{\link{get.ohlc.yahoo}}
+\code{\link{get.ohlc.yahoo}}
 
-  \code{\link{get.ohlcs.google}}
+\code{\link{get.ohlcs.google}}
 }
 

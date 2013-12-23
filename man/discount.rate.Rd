@@ -2,7 +2,7 @@
 \alias{discount.rate}
 \title{Computing the rate of return for each period}
 \usage{
-  discount.rate(n, pv, fv, pmt, type = 0)
+discount.rate(n, pv, fv, pmt, type = 0)
 }
 \arguments{
   \item{n}{number of periods}
@@ -18,14 +18,22 @@
   (type=1)}
 }
 \description{
-  Computing the rate of return for each period
+Computing the rate of return for each period
 }
 \examples{
 discount.rate(n=5,pv=0,fv=600,pmt=-100,type=0)
 }
 \seealso{
-  \code{\link{fv.simple}}
+\code{\link{fv.simple}}
 
-  \code{\link{fv.annuity}}
+\code{\link{fv.annuity}}
+
+\code{\link{fv}}
+
+\code{\link{pv}}
+
+\code{\link{pmt}}
+
+\code{\link{n.period}}
 }
 

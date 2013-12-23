@@ -2,7 +2,7 @@
 \alias{hpr2mmy}
 \title{Computing money market yield (MMY) for a T-bill}
 \usage{
-  hpr2mmy(hpr, t)
+hpr2mmy(hpr, t)
 }
 \arguments{
   \item{hpr}{holding period return}
@@ -10,14 +10,14 @@
   \item{t}{number of days remaining until maturity}
 }
 \description{
-  Computing money market yield (MMY) for a T-bill
+Computing money market yield (MMY) for a T-bill
 }
 \examples{
 hpr2mmy(hpr=0.01523,t=120)
 }
 \seealso{
-  \code{\link{hpr}}
+\code{\link{hpr}}
 
-  \code{\link{mmy2hpr}}
+\code{\link{mmy2hpr}}
 }
 

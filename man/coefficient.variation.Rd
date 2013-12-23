@@ -2,7 +2,7 @@
 \alias{coefficient.variation}
 \title{Computing Coefficient of variation}
 \usage{
-  coefficient.variation(sd, avg)
+coefficient.variation(sd, avg)
 }
 \arguments{
   \item{sd}{standard deviation}
@@ -10,12 +10,12 @@
   \item{avg}{average value}
 }
 \description{
-  Computing Coefficient of variation
+Computing Coefficient of variation
 }
 \examples{
 coefficient.variation(sd=0.15,avg=0.39)
 }
 \seealso{
-  \code{\link{Sharpe.ratio}}
+\code{\link{Sharpe.ratio}}
 }
 

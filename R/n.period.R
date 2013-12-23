@@ -8,6 +8,7 @@
 #' @seealso \code{\link{pv}}
 #' @seealso \code{\link{fv}}
 #' @seealso \code{\link{pmt}}
+#' @seealso \code{\link{discount.rate}}
 #' @export
 #' @examples
 #' n.period(0.1,-10000,60000000,-50000,0)

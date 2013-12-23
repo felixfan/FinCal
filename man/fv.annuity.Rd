@@ -2,7 +2,7 @@
 \alias{fv.annuity}
 \title{Estimate future value of an annuity}
 \usage{
-  fv.annuity(r, n, pmt, type = 0)
+fv.annuity(r, n, pmt, type = 0)
 }
 \arguments{
   \item{r}{discount rate, or the interest rate at which the
@@ -17,7 +17,7 @@
   (type=1)}
 }
 \description{
-  Estimate future value of an annuity
+Estimate future value of an annuity
 }
 \examples{
 fv.annuity(0.03,12,-1000)
@@ -25,6 +25,6 @@ fv.annuity(0.03,12,-1000)
 fv.annuity(r=0.03,n=12,pmt=-1000,type=1)
 }
 \seealso{
-  \code{\link{fv}}
+\code{\link{fv}}
 }
 

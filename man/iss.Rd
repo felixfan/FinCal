@@ -2,7 +2,7 @@
 \alias{iss}
 \title{calculate the net increase in common shares from the potential exercise of stock options or warrants}
 \usage{
-  iss(amp, ep, n)
+iss(amp, ep, n)
 }
 \arguments{
   \item{amp}{average market price over the year}
@@ -13,13 +13,13 @@
   warrants can be convened into}
 }
 \description{
-  calculate the net increase in common shares from the
-  potential exercise of stock options or warrants
+calculate the net increase in common shares from the
+potential exercise of stock options or warrants
 }
 \examples{
 iss(amp=20,ep=15,n=10000)
 }
 \seealso{
-  \code{\link{diluted.EPS}}
+\code{\link{diluted.EPS}}
 }
 

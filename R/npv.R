@@ -4,6 +4,7 @@
 #' @param cf cash flow,the first cash flow is the initial outlay
 #' @seealso \code{\link{pv.simple}}
 #' @seealso \code{\link{pv.uneven}}
+#' @seealso \code{\link{irr}}
 #' @export
 #' @examples
 #' npv(r=0.12, cf=c(-5, 1.6, 2.4, 2.8))

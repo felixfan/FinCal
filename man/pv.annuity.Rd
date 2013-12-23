@@ -2,7 +2,7 @@
 \alias{pv.annuity}
 \title{Estimate present value (pv) of an annuity}
 \usage{
-  pv.annuity(r, n, pmt, type = 0)
+pv.annuity(r, n, pmt, type = 0)
 }
 \arguments{
   \item{r}{discount rate, or the interest rate at which the
@@ -17,7 +17,7 @@
   (type=1)}
 }
 \description{
-  Estimate present value (pv) of an annuity
+Estimate present value (pv) of an annuity
 }
 \examples{
 pv.annuity(0.03,12,1000)
@@ -25,6 +25,6 @@ pv.annuity(0.03,12,1000)
 pv.annuity(r=0.0425,n=3,pmt=30000)
 }
 \seealso{
-  \code{\link{pv}}
+\code{\link{pv}}
 }
 

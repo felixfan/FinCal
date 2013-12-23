@@ -2,7 +2,7 @@
 \alias{ddb}
 \title{Depreciation Expense Recognition -- double-declining balance (DDB), the most common declining balance method, which applies two times the straight-line rate to the declining balance.}
 \usage{
-  ddb(cost, rv, t)
+ddb(cost, rv, t)
 }
 \arguments{
   \item{cost}{cost of long-lived assets}
@@ -19,15 +19,15 @@
   \item{t}{length of the useful life}
 }
 \description{
-  Depreciation Expense Recognition -- double-declining
-  balance (DDB), the most common declining balance method,
-  which applies two times the straight-line rate to the
-  declining balance.
+Depreciation Expense Recognition -- double-declining
+balance (DDB), the most common declining balance method,
+which applies two times the straight-line rate to the
+declining balance.
 }
 \examples{
 ddb(cost=1200,rv=200,t=5)
 }
 \seealso{
-  \code{\link{slde}}
+\code{\link{slde}}
 }
 

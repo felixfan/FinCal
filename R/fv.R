@@ -7,6 +7,10 @@
 #' @param type payments occur at the end of each period (type=0); payments occur at the beginning of each period (type=1)
 #' @seealso \code{\link{fv.simple}}
 #' @seealso \code{\link{fv.annuity}}
+#' @seealso \code{\link{pv}}
+#' @seealso \code{\link{pmt}}
+#' @seealso \code{\link{n.period}}
+#' @seealso \code{\link{discount.rate}}
 #' @export
 #' @examples
 #' fv(0.07,10,1000,10)

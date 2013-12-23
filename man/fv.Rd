@@ -2,7 +2,7 @@
 \alias{fv}
 \title{Estimate future value (fv)}
 \usage{
-  fv(r, n, pv = 0, pmt = 0, type = 0)
+fv(r, n, pv = 0, pmt = 0, type = 0)
 }
 \arguments{
   \item{r}{discount rate, or the interest rate at which the
@@ -19,14 +19,22 @@
   (type=1)}
 }
 \description{
-  Estimate future value (fv)
+Estimate future value (fv)
 }
 \examples{
 fv(0.07,10,1000,10)
 }
 \seealso{
-  \code{\link{fv.simple}}
+\code{\link{fv.simple}}
 
-  \code{\link{fv.annuity}}
+\code{\link{fv.annuity}}
+
+\code{\link{pv}}
+
+\code{\link{pmt}}
+
+\code{\link{n.period}}
+
+\code{\link{discount.rate}}
 }
 

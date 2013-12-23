@@ -2,7 +2,7 @@
 \alias{financial.leverage}
 \title{financial leverage -- Solvency ratios measure the firm's ability to satisfy its long-term obligations.}
 \usage{
-  financial.leverage(te, ta)
+financial.leverage(te, ta)
 }
 \arguments{
   \item{te}{total equity}
@@ -10,17 +10,17 @@
   \item{ta}{total assets}
 }
 \description{
-  financial leverage -- Solvency ratios measure the firm's
-  ability to satisfy its long-term obligations.
+financial leverage -- Solvency ratios measure the firm's
+ability to satisfy its long-term obligations.
 }
 \examples{
 financial.leverage(te=16000,ta=20000)
 }
 \seealso{
-  \code{\link{total.d2e}}
+\code{\link{total.d2e}}
 
-  \code{\link{lt.d2e}}
+\code{\link{lt.d2e}}
 
-  \code{\link{debt.ratio}}
+\code{\link{debt.ratio}}
 }
 

@@ -2,7 +2,7 @@
 \alias{bdy}
 \title{Computing bank discount yield (BDY) for a T-bill}
 \usage{
-  bdy(d, f, t)
+bdy(d, f, t)
 }
 \arguments{
   \item{d}{the dollar discount, which is equal to the
@@ -14,12 +14,12 @@
   \item{t}{number of days remaining until maturity}
 }
 \description{
-  Computing bank discount yield (BDY) for a T-bill
+Computing bank discount yield (BDY) for a T-bill
 }
 \examples{
 bdy(d=1500,f=100000,t=120)
 }
 \seealso{
-  \code{\link{bdy2mmy}}
+\code{\link{bdy2mmy}}
 }
 

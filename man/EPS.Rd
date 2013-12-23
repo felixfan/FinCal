@@ -2,7 +2,7 @@
 \alias{EPS}
 \title{Basic Earnings Per Share}
 \usage{
-  EPS(ni, pd, w)
+EPS(ni, pd, w)
 }
 \arguments{
   \item{ni}{net income}
@@ -13,14 +13,14 @@
   outstanding}
 }
 \description{
-  Basic Earnings Per Share
+Basic Earnings Per Share
 }
 \examples{
 EPS(ni=10000,pd=1000,w=11000)
 }
 \seealso{
-  \code{\link{diluted.EPS}}
+\code{\link{diluted.EPS}}
 
-  \code{\link{was}}
+\code{\link{was}}
 }
 

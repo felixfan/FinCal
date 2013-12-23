@@ -2,8 +2,8 @@
 \alias{diluted.EPS}
 \title{diluted Earnings Per Share}
 \usage{
-  diluted.EPS(ni, pd, cpd = 0, cdi = 0, tax = 0, w,
-    cps = 0, cds = 0, iss = 0)
+diluted.EPS(ni, pd, cpd = 0, cdi = 0, tax = 0, w, cps = 0, cds = 0,
+  iss = 0)
 }
 \arguments{
   \item{ni}{net income}
@@ -27,7 +27,7 @@
   \item{iss}{shares issuable from stock options}
 }
 \description{
-  diluted Earnings Per Share
+diluted Earnings Per Share
 }
 \examples{
 diluted.EPS(ni=115600,pd=10000,cdi=42000,tax=0.4,w=200000,cds=60000)
@@ -39,10 +39,10 @@ diluted.EPS(ni=115600,pd=10000,w=200000,iss=2500)
 diluted.EPS(ni=115600,pd=10000,cpd=10000,cdi=42000,tax=0.4,w=200000,cps=40000,cds=60000,iss=2500)
 }
 \seealso{
-  \code{\link{EPS}}
+\code{\link{EPS}}
 
-  \code{\link{iss}}
+\code{\link{iss}}
 
-  \code{\link{was}}
+\code{\link{was}}
 }
 
