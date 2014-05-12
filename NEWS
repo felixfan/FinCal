@@ -1,6 +1,11 @@
+FinCal 0.6.1
+================================================================
+optimize functions: discount.rate and irr ("uniroot" function was used, run fast now)
+optimize functions: lineChart, lineChartMult, volumeChart, candlestickChart (parameter "breaks" was added to control the width between breaks, "date.breaks" function was deleted)
+
 FinCal 0.6
 ================================================================
-Released 2013-Dec
+Released 2014-Feb-02
 
 Equivalent/proportional Interest Rates
 * add EIR

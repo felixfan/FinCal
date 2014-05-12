@@ -19,9 +19,8 @@ Batch download stock prices from Yahoo Finance (open, high,
 low, close, volume, adjusted)
 }
 \examples{
-get.ohlcs.yahoo(symbols=c("AAPL","GOOG","SPY"),freq="d")
-
-get.ohlcs.yahoo(symbols=c("AAPL","GOOG","SPY"),start="2013-01-01",freq="m")
+# get.ohlcs.yahoo(symbols=c("AAPL","GOOG","SPY"),freq="d")
+# get.ohlcs.yahoo(symbols=c("AAPL","GOOG","SPY"),start="2013-01-01",freq="m")
 }
 \seealso{
 \code{\link{get.ohlc.yahoo}}

@@ -15,29 +15,6 @@
 #' @examples
 #' discount.rate(n=5,pv=0,fv=600,pmt=-100,type=0)
 discount.rate <- function(n,pv,fv,pmt,type=0){
-r <- seq(0,1,by=0.000001)
-m <- length(r)
-
-if (fv.simple(r[2],n,pv) + fv.annuity(r[2],n,pmt,type) < fv){
-flag <- 1
-}else{
-flag <- 0
-}
-
-for(i in 2:m){
-sumfv <- fv.simple(r[i],n,pv) + fv.annuity(r[i],n,pmt,type)
-error <- abs(sumfv-fv)
-
-	if(flag == 1){
-		if(error < 0.000001 || sumfv > fv){
-		break
-		}
-	}else{
-		if(error < 0.000001 || sumfv < fv){
-		break
-		}
-	}
-}
-return(r[i])
+        uniroot(function(r) fv.simple(r,n,pv) + fv.annuity(r,n,pmt,type)-fv,c(1e-10,1e10))$root
 }
 

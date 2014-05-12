@@ -4,15 +4,15 @@
 #' @param start start date to plot, if not specified, all date in ohlc will be included
 #' @param end end date to plot
 #' @param main an overall title for the plot
-#' @param ... Arguments to be passed to methods
+#' @param breaks specifying the width between breaks. e.g. "1 day", "1 week", "2 weeks","1 month"
+#' @param ... Arguments to be passed to ggplot
 #' @seealso \code{\link{get.ohlc.yahoo}}
 #' @seealso \code{\link{get.ohlc.google}}
 #' @export
 #' @examples
-#' google <- get.ohlc.yahoo("GOOG",start="2013-07-01",end="2013-08-01"); candlestickChart(google)
-#'
-#' apple <- get.ohlc.google("AAPL",start="2013-07-01",end="2013-08-01"); candlestickChart(apple)
-candlestickChart <- function(ohlc, start=NULL, end=NULL, main="", ...){
+#' # google <- get.ohlc.yahoo("GOOG",start="2013-07-01",end="2013-08-01"); candlestickChart(google)
+#' # apple <- get.ohlc.google("AAPL",start="2013-07-01",end="2013-08-01"); candlestickChart(apple)
+candlestickChart <- function(ohlc, start=NULL, end=NULL, main="", breaks="1 week", ...){
   options(warn=-1)
   date <- as.Date(ohlc$date)
   open <- as.vector(ohlc$open)
@@ -33,11 +33,11 @@ candlestickChart <- function(ohlc, start=NULL, end=NULL, main="", ...){
     end=as.Date(end)
     xSubset <-subset(xSubset, xSubset$date > start & xSubset$date < end) 
   }
-  myBreak=date.breaks(xSubset)
-  g <- ggplot(xSubset, aes_string(x='date', lower='candleLower', middle='candleMiddle', upper='candleUpper', ymin='low', ymax='high',na.rm=TRUE)) +
-    geom_boxplot(stat='identity', aes_string(group='date', fill='fill')) + theme_bw() + 
-    scale_fill_manual(name = "", values = c("white", "red")) + labs( title =main ) + labs(x="") +
-    theme(legend.position="none") + theme(axis.text.x=element_text(angle=90)) +
-    scale_x_date(labels = date_format("%Y-%m-%d"),breaks=date_breaks(myBreak))
+
+  g <- ggplot(xSubset, aes_string(x='date', lower='candleLower', middle='candleMiddle', upper='candleUpper', ymin='low', ymax='high',na.rm=TRUE),...) +
+          geom_boxplot(stat='identity', aes_string(group='date', fill='fill')) + theme_bw() + 
+          scale_fill_manual(name = "", values = c("white", "red")) + labs( title =main ) + labs(x="") +
+          theme(legend.position="none") + theme(axis.text.x=element_text(angle=90)) +
+          scale_x_date(labels = date_format("%Y-%m-%d"),breaks = breaks, minor_breaks = "1 day")
   return(g)
 }

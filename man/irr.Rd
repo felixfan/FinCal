@@ -12,7 +12,7 @@ irr(cf)
 Computing IRR, the internal rate of return
 }
 \examples{
-irr(cf=c(-5, 1.6, 2.4, 2.8))
+# irr(cf=c(-5, 1.6, 2.4, 2.8))
 }
 \seealso{
 \code{\link{pv.uneven}}

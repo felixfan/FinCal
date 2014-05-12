@@ -2,27 +2,29 @@
 \alias{lineChart}
 \title{Technical analysts - Line charts: show prices for each period as a continuous line}
 \usage{
-lineChart(ohlc, y = "close", main = "", ...)
+lineChart(ohlc, y = "close", main = "", breaks = "1 week", ...)
 }
 \arguments{
   \item{ohlc}{output from get.ohlc.yahoo or
   get.ohlc.google}
 
   \item{y}{y coordinates: close, open, high, low or
-  adjusted}
+  adjusted (yahoo data only)}
 
   \item{main}{an overall title for the plot}
 
-  \item{...}{Arguments to be passed to methods}
+  \item{breaks}{specifying the width between breaks. e.g.
+  "1 day", "1 week", "2 weeks","1 month"}
+
+  \item{...}{Arguments to be passed to ggplot}
 }
 \description{
 Technical analysts - Line charts: show prices for each
 period as a continuous line
 }
 \examples{
-google <- get.ohlc.yahoo("GOOG"); lineChart(google)
-
-apple <- get.ohlc.google("AAPL"); lineChart(apple)
+# google <- get.ohlc.yahoo("GOOG"); lineChart(google)
+# apple <- get.ohlc.google("AAPL"); lineChart(apple)
 }
 \seealso{
 \code{\link{get.ohlc.yahoo}}

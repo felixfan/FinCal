@@ -5,18 +5,9 @@
 #' @seealso \code{\link{npv}}
 #' @export
 #' @examples
-#' irr(cf=c(-5, 1.6, 2.4, 2.8))
+#' # irr(cf=c(-5, 1.6, 2.4, 2.8))
 irr <- function(cf){
-  r <- seq(0,1,by=0.000001)
-  m <- length(r) 
-  n <- length(cf)
-  subcf <- cf[2:n]
-  for(i in 2:m){
-    npv <- -1 * pv.uneven(r[i], subcf) + cf[1]
-    if(abs(npv) < 0.000001 || npv < 0){
-      break
-    }
-  }
-  return(r[i])
+        n <- length(cf)
+        subcf <- cf[2:n]
+        uniroot(function(r) -1 * pv.uneven(r, subcf) + cf[1], interval=c(1e-10,1e10))$root 
 }
-

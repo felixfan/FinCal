@@ -7,11 +7,9 @@
 #' @seealso \code{\link{get.ohlcs.google}}
 #' @export
 #' @examples
-#' get.ohlc.google(symbol="AAPL")
-#'
-#' get.ohlc.google(symbol="AAPL",start="2013-08-01")
-#'
-#' get.ohlc.google(symbol="AAPL",start="2013-07-01",end="2013-08-01")
+#' # get.ohlc.google(symbol="AAPL")
+#' # get.ohlc.google(symbol="AAPL",start="2013-08-01")
+#' # get.ohlc.google(symbol="AAPL",start="2013-07-01",end="2013-08-01")
 get.ohlc.google <- function(symbol,start="2013-01-01",end="today"){
     temp <- strsplit(start,"-")
     a=month.abb[as.numeric(temp[[1]][2])]

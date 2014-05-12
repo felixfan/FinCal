@@ -7,11 +7,9 @@
 #' @seealso \code{\link{get.ohlcs.yahoo}}
 #' @export
 #' @examples
-#' get.ohlcs.google(symbols=c("AAPL","GOOG","SPY"))
-#'
-#' get.ohlcs.google(symbols=c("AAPL","GOOG","SPY"),start="2013-01-01")
-#'
-#' get.ohlcs.google(symbols=c("AAPL","GOOG","SPY"),start="2013-01-01",end="2013-07-31")
+#' # get.ohlcs.google(symbols=c("AAPL","GOOG","SPY"))
+#' # get.ohlcs.google(symbols=c("AAPL","GOOG","SPY"),start="2013-01-01")
+#' # get.ohlcs.google(symbols=c("AAPL","GOOG","SPY"),start="2013-01-01",end="2013-07-31")
 get.ohlcs.google <- function(symbols,start="2013-01-01",end="today"){
   n <- length(symbols)
   ohlc=list()

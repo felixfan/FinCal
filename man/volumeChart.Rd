@@ -2,7 +2,7 @@
 \alias{volumeChart}
 \title{Technical analysts - Volume charts: show each period's volume as a vertical line}
 \usage{
-volumeChart(ohlc, main = "", ...)
+volumeChart(ohlc, main = "", breaks = "1 week", ...)
 }
 \arguments{
   \item{ohlc}{output from get.ohlc.yahoo or
@@ -10,18 +10,20 @@ volumeChart(ohlc, main = "", ...)
 
   \item{main}{an overall title for the plot}
 
-  \item{...}{Arguments to be passed to methods}
+  \item{breaks}{specifying the width between breaks. e.g.
+  "1 day", "1 week", "2 weeks","1 month"}
+
+  \item{...}{Arguments to be passed to ggplot}
 }
 \description{
 Technical analysts - Volume charts: show each period's
 volume as a vertical line
 }
 \examples{
-google <- get.ohlc.yahoo("GOOG");
-volumeChart(google)
-
-apple <- get.ohlc.google("AAPL");
-volumeChart(apple)
+# google <- get.ohlc.yahoo("GOOG");
+# volumeChart(google)
+# apple <- get.ohlc.google("AAPL");
+# volumeChart(apple)
 }
 \seealso{
 \code{\link{get.ohlc.yahoo}}

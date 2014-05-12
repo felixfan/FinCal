@@ -14,14 +14,8 @@ EIR(r, n = 1, p = 12, type = c("e", "p"))
   \item{p}{times that the equivalent rate were compounded
   per year}
 
-<<<<<<< HEAD
-  \item{type}{equivalent interest rates
-  ('e',default) or proportional interest rates
-  ('p')}
-=======
   \item{type}{equivalent interest rates ('e',default) or
   proportional interest rates ('p')}
->>>>>>> set digits of irr and discount.rate to 0.000001
 }
 \description{
 An interest rate to be applied n times p.a. can be

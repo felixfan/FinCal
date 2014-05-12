@@ -8,11 +8,9 @@
 #' @seealso \code{\link{get.ohlc.google}}
 #' @export
 #' @examples
-#' get.ohlc.yahoo(symbol="AAPL")
-#'
-#' get.ohlc.yahoo(symbol="AAPL",start="2013-08-01",freq="d")
-#'
-#' get.ohlc.yahoo(symbol="AAPL",start="2013-07-01",end="2013-08-01",freq="w")
+#' # get.ohlc.yahoo(symbol="AAPL")
+#' # get.ohlc.yahoo(symbol="AAPL",start="2013-08-01",freq="d")
+#' # get.ohlc.yahoo(symbol="AAPL",start="2013-07-01",end="2013-08-01",freq="w")
 get.ohlc.yahoo <- function(symbol,start="firstDay",end="today",freq="d"){
   if(start == "firstDay"){
       URL=paste("http://ichart.finance.yahoo.com/table.csv?s=", symbol, sep="")
