@@ -77,3 +77,4 @@ example{pv} # see example of using the function
 
 
 
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.11511.png)](http://dx.doi.org/10.5281/zenodo.11511)
