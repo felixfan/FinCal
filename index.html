@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Fincal by felixfan</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Fincal</h1>
+        <p>Package for time value of money calculation, time series analysis and computational finance</p>
+
+        <p class="view"><a href="https://github.com/felixfan/FinCal">View the Project on GitHub <small>felixfan/FinCal</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/felixfan/FinCal/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/felixfan/FinCal/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/felixfan/FinCal">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="examples-of-using-fincal" class="anchor" href="#examples-of-using-fincal"><span class="octicon octicon-link"></span></a>Examples of using FinCal</h1>
+
+<p>Created on Fri Jul 19 2013<br>
+Updated on Mon May 12 15:57:11 2014   </p>
+
+<h2>
+<a name="fincal----time-value-of-money-time-series-analysis-and-computational-finance" class="anchor" href="#fincal----time-value-of-money-time-series-analysis-and-computational-finance"><span class="octicon octicon-link"></span></a>FinCal -- Time Value of Money, time series analysis and Computational Finance</h2>
+
+<p>FinCal is available on <a href="http://cran.r-project.org/web/packages/FinCal/">CRAN</a> and <a href="http://felixfan.github.io/FinCal/">GitHub</a></p>
+
+<pre><code>install.packages("FinCal",dependencies=TRUE) # from CRAN
+</code></pre>
+
+<p>or   </p>
+
+<pre><code>library("devtools")
+install_github("felixfan/FinCal") # from GitHub
+</code></pre>
+
+<div class="highlight highlight-r"><pre><span class="kn">library</span><span class="p">(</span>FinCal<span class="p">)</span>
+</pre></div>
+
+<p>Functions available:    </p>
+
+<div class="highlight highlight-r"><pre><span class="kp">ls</span><span class="p">(</span><span class="s">"package:FinCal"</span><span class="p">)</span>
+</pre></div>
+
+<pre><code> [1] "bdy"                   "bdy2mmy"              
+ [3] "candlestickChart"      "cash.ratio"           
+ [5] "coefficient.variation" "cogs"                 
+ [7] "current.ratio"         "ddb"                  
+ [9] "debt.ratio"            "diluted.EPS"          
+[11] "discount.rate"         "ear"                  
+[13] "ear.continuous"        "ear2bey"              
+[15] "ear2hpr"               "EIR"                  
+[17] "EPS"                   "financial.leverage"   
+[19] "fv"                    "fv.annuity"           
+[21] "fv.simple"             "fv.uneven"            
+[23] "geometric.mean"        "get.ohlc.google"      
+[25] "get.ohlc.yahoo"        "get.ohlcs.google"     
+[27] "get.ohlcs.yahoo"       "gpm"                  
+[29] "harmonic.mean"         "hpr"                  
+[31] "hpr2bey"               "hpr2ear"              
+[33] "hpr2mmy"               "irr"                  
+[35] "iss"                   "lineChart"            
+[37] "lineChartMult"         "lt.d2e"               
+[39] "mmy2hpr"               "n.period"             
+[41] "npm"                   "npv"                  
+[43] "pmt"                   "pv"                   
+[45] "pv.annuity"            "pv.perpetuity"        
+[47] "pv.simple"             "pv.uneven"            
+[49] "quick.ratio"           "r.continuous"         
+[51] "r.norminal"            "r.perpetuity"         
+[53] "sampling.error"        "SFRatio"              
+[55] "Sharpe.ratio"          "slde"                 
+[57] "total.d2e"             "twrr"                 
+[59] "volumeChart"           "was"                  
+[61] "wpr"                  
+</code></pre>
+
+<p>Getting help on a function (e.g., pv)    </p>
+
+<pre><code>help{pv}    # display the documentation for the function
+args{pv}    # see arguments of the function
+example{pv} # see example of using the function
+</code></pre>
+
+<ul>
+<li><a href="http://felixfan.github.io/finance/2014/05/12/FinCal-example-0.6/">Examples for version 0.1 -0.6</a></li>
+</ul>
+
+<p><a href="http://dx.doi.org/10.5281/zenodo.11511"><img src="https://zenodo.org/badge/doi/10.5281/zenodo.11511.png" alt="DOI"></a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/felixfan">felixfan</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-44240871-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
