@@ -2,14 +2,14 @@ Package: FinCal
 Title: Time Value of Money, time series analysis and Computational Finance
 Description: Package for time value of money calculation, time series analysis
     and computational finance
-Version: 0.6.1
-Date: 2014-02-24
-Author: Felix Yanhui Fan <nolanfyh@gmail.com>
+Version: 0.6.2
+Date: 2015-12-22
+Author: Felix Yanhui Fan <felixfanyh@gmail.com>
 Imports:
     ggplot2,
     reshape2,
     scales,
     RCurl
-Maintainer: Felix Yanhui Fan <nolanfyh@gmail.com>
+Maintainer: Felix Yanhui Fan <felixfanyh@gmail.com>
 License: GPL (>= 2)
-URL: http://felixfan.github.io/FinCal/, http://rpubs.com/Felix/7120
+URL: http://felixfan.github.io/FinCal/

@@ -1,4 +1,4 @@
-import(ggplot2)
+importFrom(ggplot2, scale_alpha)
 import(reshape2)
 import(RCurl)
 import(scales)
