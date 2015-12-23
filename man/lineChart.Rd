@@ -4,7 +4,7 @@
 \alias{lineChart}
 \title{Technical analysts - Line charts: show prices for each period as a continuous line}
 \usage{
-lineChart(ohlc, y = "close", main = "", breaks = "1 week", ...)
+lineChart(ohlc, y = "close", main = "", ...)
 }
 \arguments{
 \item{ohlc}{output from get.ohlc.yahoo or get.ohlc.google}
@@ -12,8 +12,6 @@ lineChart(ohlc, y = "close", main = "", breaks = "1 week", ...)
 \item{y}{y coordinates: close, open, high, low or adjusted (yahoo data only)}
 
 \item{main}{an overall title for the plot}
-
-\item{breaks}{specifying the width between breaks. e.g. "1 day", "1 week", "2 weeks","1 month"}
 
 \item{...}{Arguments to be passed to ggplot}
 }

@@ -3,7 +3,6 @@
 #' @param ohlcs output from get.ohlc.yahoo.mult or get.ohlc.google.mult
 #' @param y y coordinates: close, open, high, low or adjusted (yahoo data only)
 #' @param main an overall title for the plot
-#' @param breaks specifying the width between breaks. e.g. "1 day", "1 week", "2 weeks","1 month"
 #' @param ... Arguments to be passed to ggplot
 #' @seealso \code{\link{get.ohlcs.yahoo}}
 #' @seealso \code{\link{get.ohlcs.google}}
@@ -14,7 +13,7 @@
 #' # lineChartMult(googapple)
 #' # googapple <- get.ohlcs.google(c("GOOG","AAPL"),start="2013-01-01"); 
 #' # lineChartMult(googapple)
-lineChartMult <- function(ohlcs,y="close",main="",breaks="1 week",...){
+lineChartMult <- function(ohlcs,y="close",main="",...){
   options(warn=-1)
   sname=names(ohlcs)
   n=length(sname)
@@ -39,6 +38,5 @@ lineChartMult <- function(ohlcs,y="close",main="",breaks="1 week",...){
   pdf <- melt(z, id="Date")
   ggplot(data=pdf, aes_string(x='Date', y='value', colour='variable'),...) + geom_line() +
     labs( title =main ) + labs(x="") + scale_y_continuous(name=y) +
-    theme(axis.text.x=element_text(angle=90)) + theme(legend.title=element_blank()) +
-    scale_x_date(labels = date_format("%Y-%m-%d"),breaks = breaks, minor_breaks = "1 day")
+    theme(axis.text.x=element_text(angle=90)) + theme(legend.title=element_blank())
 }

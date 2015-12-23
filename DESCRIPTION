@@ -13,3 +13,4 @@ Imports:
 Maintainer: Felix Yanhui Fan <felixfanyh@gmail.com>
 License: GPL (>= 2)
 URL: http://felixfan.github.io/FinCal/
+RoxygenNote: 5.0.1

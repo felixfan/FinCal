@@ -4,14 +4,12 @@
 \alias{volumeChart}
 \title{Technical analysts - Volume charts: show each period's volume as a vertical line}
 \usage{
-volumeChart(ohlc, main = "", breaks = "1 week", ...)
+volumeChart(ohlc, main = "", ...)
 }
 \arguments{
 \item{ohlc}{output from get.ohlc.yahoo or get.ohlc.google}
 
 \item{main}{an overall title for the plot}
-
-\item{breaks}{specifying the width between breaks. e.g. "1 day", "1 week", "2 weeks","1 month"}
 
 \item{...}{Arguments to be passed to ggplot}
 }

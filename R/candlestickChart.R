@@ -4,7 +4,6 @@
 #' @param start start date to plot, if not specified, all date in ohlc will be included
 #' @param end end date to plot
 #' @param main an overall title for the plot
-#' @param breaks specifying the width between breaks. e.g. "1 day", "1 week", "2 weeks","1 month"
 #' @param ... Arguments to be passed to ggplot
 #' @seealso \code{\link{get.ohlc.yahoo}}
 #' @seealso \code{\link{get.ohlc.google}}
@@ -12,7 +11,7 @@
 #' @examples
 #' # google <- get.ohlc.yahoo("GOOG",start="2013-07-01",end="2013-08-01"); candlestickChart(google)
 #' # apple <- get.ohlc.google("AAPL",start="2013-07-01",end="2013-08-01"); candlestickChart(apple)
-candlestickChart <- function(ohlc, start=NULL, end=NULL, main="", breaks="1 week", ...){
+candlestickChart <- function(ohlc, start=NULL, end=NULL, main="", ...){
   options(warn=-1)
   date <- as.Date(ohlc$date)
   open <- as.vector(ohlc$open)
@@ -23,8 +22,8 @@ candlestickChart <- function(ohlc, start=NULL, end=NULL, main="", breaks="1 week
   xSubset <-data.frame('date'=date,'open'=open,'high'= high,'low'=low,'close'=close)
    
   xSubset$candleLower <- pmin(xSubset$open, xSubset$close)
-  xSubset$candleMiddle <- NA
   xSubset$candleUpper <- pmax(xSubset$open, xSubset$close)
+  xSubset$candleMiddle = (xSubset$candleLower+xSubset$candleUpper)/2
   xSubset$fill <- 'red'
   xSubset$fill[xSubset$open < xSubset$close] = ''
   
@@ -36,8 +35,7 @@ candlestickChart <- function(ohlc, start=NULL, end=NULL, main="", breaks="1 week
 
   g <- ggplot(xSubset, aes_string(x='date', lower='candleLower', middle='candleMiddle', upper='candleUpper', ymin='low', ymax='high',na.rm=TRUE),...) +
           geom_boxplot(stat='identity', aes_string(group='date', fill='fill')) + theme_bw() + 
-          scale_fill_manual(name = "", values = c("white", "red")) + labs( title =main ) + labs(x="") +
-          theme(legend.position="none") + theme(axis.text.x=element_text(angle=90)) +
-          scale_x_date(labels = date_format("%Y-%m-%d"),breaks = breaks, minor_breaks = "1 day")
+          scale_fill_manual(name = "", values = c("red", "blue")) + labs( title =main ) + labs(x="") +
+          theme(legend.position="none") + theme(axis.text.x=element_text(angle=90))
   return(g)
 }

@@ -4,8 +4,7 @@
 \alias{candlestickChart}
 \title{Technical analysts - Candlestick chart: show prices for each period as a continuous line. The box is clear if the closing price is higher than the opening price, or filled red if the closing is lower than the opening price.}
 \usage{
-candlestickChart(ohlc, start = NULL, end = NULL, main = "",
-  breaks = "1 week", ...)
+candlestickChart(ohlc, start = NULL, end = NULL, main = "", ...)
 }
 \arguments{
 \item{ohlc}{output from get.ohlc.yahoo or get.ohlc.google}
@@ -15,8 +14,6 @@ candlestickChart(ohlc, start = NULL, end = NULL, main = "",
 \item{end}{end date to plot}
 
 \item{main}{an overall title for the plot}
-
-\item{breaks}{specifying the width between breaks. e.g. "1 day", "1 week", "2 weeks","1 month"}
 
 \item{...}{Arguments to be passed to ggplot}
 }
