@@ -5,6 +5,7 @@
 #' @param ... Arguments to be passed to ggplot
 #' @seealso \code{\link{get.ohlc.yahoo}}
 #' @seealso \code{\link{get.ohlc.google}}
+#' @importFrom ggplot2 ggplot geom_bar theme labs aes_string element_text
 #' @export
 #' @examples
 #' # google <- get.ohlc.yahoo("GOOG");

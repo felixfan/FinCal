@@ -1,3 +1,7 @@
+FinCal 0.6.2
+================================================================
+change import to importFrom
+
 FinCal 0.6.1
 ================================================================
 optimize functions: discount.rate and irr ("uniroot" function was used, run fast now)

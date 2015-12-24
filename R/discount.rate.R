@@ -11,6 +11,7 @@
 #' @seealso \code{\link{pv}}
 #' @seealso \code{\link{pmt}}
 #' @seealso \code{\link{n.period}}
+#' @importFrom stats uniroot
 #' @export
 #' @examples
 #' discount.rate(n=5,pv=0,fv=600,pmt=-100,type=0)

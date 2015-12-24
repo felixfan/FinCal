@@ -7,6 +7,7 @@
 #' @param ... Arguments to be passed to ggplot
 #' @seealso \code{\link{get.ohlc.yahoo}}
 #' @seealso \code{\link{get.ohlc.google}}
+#' @importFrom ggplot2 ggplot geom_boxplot theme theme_bw scale_fill_manual labs aes_string element_text
 #' @export
 #' @examples
 #' # google <- get.ohlc.yahoo("GOOG",start="2013-07-01",end="2013-08-01"); candlestickChart(google)
@@ -35,7 +36,7 @@ candlestickChart <- function(ohlc, start=NULL, end=NULL, main="", ...){
 
   g <- ggplot(xSubset, aes_string(x='date', lower='candleLower', middle='candleMiddle', upper='candleUpper', ymin='low', ymax='high',na.rm=TRUE),...) +
           geom_boxplot(stat='identity', aes_string(group='date', fill='fill')) + theme_bw() + 
-          scale_fill_manual(name = "", values = c("red", "blue")) + labs( title =main ) + labs(x="") +
+          scale_fill_manual(name = "", values = c("red", "green")) + labs( title =main ) + labs(x="") +
           theme(legend.position="none") + theme(axis.text.x=element_text(angle=90))
   return(g)
 }

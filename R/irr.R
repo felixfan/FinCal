@@ -3,6 +3,7 @@
 #' @param cf cash flow,the first cash flow is the initial outlay
 #' @seealso \code{\link{pv.uneven}}
 #' @seealso \code{\link{npv}}
+#' @importFrom stats uniroot
 #' @export
 #' @examples
 #' # irr(cf=c(-5, 1.6, 2.4, 2.8))

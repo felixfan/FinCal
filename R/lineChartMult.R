@@ -7,6 +7,8 @@
 #' @seealso \code{\link{get.ohlcs.yahoo}}
 #' @seealso \code{\link{get.ohlcs.google}}
 #' @seealso \code{\link{lineChart}}
+#' @importFrom ggplot2 ggplot geom_line theme scale_y_continuous labs aes_string element_text element_blank
+#' @importFrom reshape2 melt
 #' @export
 #' @examples
 #' # googapple <- get.ohlcs.yahoo(c("GOOG","AAPL"),start="2013-01-01"); 

@@ -6,6 +6,7 @@
 #' @param freq time interval, e.g., d:daily, w:weekly, m:monthly
 #' @seealso \code{\link{get.ohlc.yahoo}}
 #' @seealso \code{\link{get.ohlcs.google}}
+#' @importFrom utils read.csv
 #' @export
 #' @examples
 #' # get.ohlcs.yahoo(symbols=c("AAPL","GOOG","SPY"),freq="d")

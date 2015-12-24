@@ -5,6 +5,8 @@
 #' @param end end date, e.g., 2013-08-06
 #' @seealso \code{\link{get.ohlc.google}}
 #' @seealso \code{\link{get.ohlcs.yahoo}}
+#' @importFrom RCurl getURL
+#' @importFrom utils read.csv
 #' @export
 #' @examples
 #' # get.ohlcs.google(symbols=c("AAPL","GOOG","SPY"))
