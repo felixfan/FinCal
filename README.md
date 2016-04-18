@@ -75,6 +75,8 @@ example{pv} # see example of using the function
 * [Examples for version 0.1 -0.6](http://felixfan.github.io/finance/2014/05/12/FinCal-example-0.6/)
 
 
-
-
+# Citations
+* Yanhui Fan. (2014) FinCal: package for time value of money calculation, time series analysis and computational finance.
 [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.11511.png)](http://dx.doi.org/10.5281/zenodo.11511)
+
+* Yanhui Fan. (2016) FinCal: package for time value of money calculation, time series analysis and computational finance. Zenodo. [![DOI](https://zenodo.org/badge/5810/felixfan/FinCal.svg)](https://zenodo.org/badge/latestdoi/5810/felixfan/FinCal)
