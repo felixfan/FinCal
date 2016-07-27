@@ -11,9 +11,6 @@
 #' # irr2(cf=c(-5, 1.6, 2.4, 2.8))
 #' # irr2(cf=c(-200, 50, 60, -70, 30, 20))
 irr2 <- function(cf,cutoff=0.1,from=-1, to=10, step=0.000001){
-        if(sum(cf) < 0){
-          stop('it looks unreasonable to have this cash flow')
-        }
         r0 <- NA
         n <- length(cf)
         for(r in seq(from, to, step)){
