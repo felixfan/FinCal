@@ -77,7 +77,7 @@ args{pv}    # see arguments of the function
 example{pv} # see example of using the function
 ```
 
-* [Examples for version 0.1 -0.6](http://felixfan.github.io/finance/2014/05/12/FinCal-example-0.6/)
+* [Examples for version 0.1 -0.6](http://felixfan.github.io/FinCal-example-0.6/)
 
 
 # Citations
