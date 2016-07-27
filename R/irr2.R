@@ -1,18 +1,22 @@
 #' Computing IRR, the internal rate of return
 #' 
 #' @param cf cash flow,the first cash flow is the initial outlay
-#' @seealso \code{\link{pv.uneven}}
-#' @seealso \code{\link{npv}}
-#' @importFrom stats uniroot
+#' @param cutoff, threshold to take npv as zero
+#' @param from, smallest irr to try
+#' @param to, largest irr to try
+#' @param step, increment of the irr
+#' @seealso \code{\link{irr}}
 #' @export
 #' @examples
 #' # irr(cf=c(-5, 1.6, 2.4, 2.8))
-irr2 <- function(cf,cutoff=1e-3,from=-1, to=1, step=0.0001){
-        n <- length(cf)
-        subcf <- cf[2:n]
+irr2 <- function(cf,cutoff=0.01,from=-1, to=1, step=0.000001){
         r0 <- NA
+        n <- length(cf)
         for(r in seq(from, to, step)){
-            npv = cf[1] + pv.uneven(r, subcf)
+            npv = cf[1]
+            for(i in 2:n){
+                npv = npv + cf[i]/(1+r)**(i-1)
+            }
             if (! is.na(npv)){
                 if(abs(npv) < cutoff){
                     r0 <- r
@@ -22,7 +26,7 @@ irr2 <- function(cf,cutoff=1e-3,from=-1, to=1, step=0.0001){
         }
 
         if(is.na(r0)){
-            stop("can not find irr in the given interval, please try smaller from and/or larger to")
+            stop("can not find irr in the given interval, you can try smaller from, and/or smaller step, and/or larger to, and/or larger cutoff")
         }
         return(r0)
 }
