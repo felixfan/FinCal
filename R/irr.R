@@ -10,5 +10,5 @@
 irr <- function(cf){
         n <- length(cf)
         subcf <- cf[2:n]
-        uniroot(function(r) -1 * pv.uneven(r, subcf) + cf[1], interval=c(1e-10,1e10))$root 
+        uniroot(function(r) -1 * pv.uneven(r, subcf) + cf[1], interval=c(-1e3,1e10))$root 
 }
