@@ -1,14 +1,15 @@
 #' Computing IRR, the internal rate of return
 #' 
 #' @param cf cash flow,the first cash flow is the initial outlay
-#' @param cutoff, threshold to take npv as zero
-#' @param from, smallest irr to try
-#' @param to, largest irr to try
-#' @param step, increment of the irr
+#' @param cutoff threshold to take npv as zero
+#' @param from smallest irr to try
+#' @param to largest irr to try
+#' @param step increment of the irr
 #' @seealso \code{\link{irr}}
 #' @export
 #' @examples
-#' # irr(cf=c(-5, 1.6, 2.4, 2.8))
+#' # irr2(cf=c(-5, 1.6, 2.4, 2.8))
+#' # irr2(cf=c(-200, 50, 60, -70, 30, 20))
 irr2 <- function(cf,cutoff=0.01,from=-1, to=1, step=0.000001){
         r0 <- NA
         n <- length(cf)

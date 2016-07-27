@@ -9,19 +9,20 @@ irr2(cf, cutoff = 0.01, from = -1, to = 1, step = 1e-06)
 \arguments{
 \item{cf}{cash flow,the first cash flow is the initial outlay}
 
-\item{cutoff, }{threshold to take npv as zero}
+\item{cutoff}{threshold to take npv as zero}
 
-\item{from, }{smallest irr to try}
+\item{from}{smallest irr to try}
 
-\item{to, }{largest irr to try}
+\item{to}{largest irr to try}
 
-\item{step, }{increment of the irr}
+\item{step}{increment of the irr}
 }
 \description{
 Computing IRR, the internal rate of return
 }
 \examples{
-# irr(cf=c(-5, 1.6, 2.4, 2.8))
+# irr2(cf=c(-5, 1.6, 2.4, 2.8))
+# irr2(cf=c(-200, 50, 60, -70, 30, 20))
 }
 \seealso{
 \code{\link{irr}}
