@@ -24,4 +24,3 @@ r.norminal(0.03,4)
 
 \code{\link{ear.continuous}}
 }
-

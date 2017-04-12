@@ -29,4 +29,3 @@ Technical analysts - Candlestick chart: show prices for each period as a continu
 
 \code{\link{get.ohlc.google}}
 }
-

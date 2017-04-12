@@ -20,4 +20,3 @@ Computing IRR, the internal rate of return
 
 \code{\link{npv}}
 }
-

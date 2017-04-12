@@ -20,4 +20,3 @@ hpr2bey(hpr=0.02,t=3)
 \seealso{
 \code{\link{hpr}}
 }
-

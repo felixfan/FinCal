@@ -28,4 +28,3 @@ Download stock prices from Yahoo Finance (open, high, low, close, volume, adjust
 
 \code{\link{get.ohlc.google}}
 }
-

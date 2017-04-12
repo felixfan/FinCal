@@ -31,4 +31,3 @@ Technical analysts - Line charts: show prices for each period as a continuous li
 
 \code{\link{lineChart}}
 }
-

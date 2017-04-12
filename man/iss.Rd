@@ -22,4 +22,3 @@ iss(amp=20,ep=15,n=10000)
 \seealso{
 \code{\link{diluted.EPS}}
 }
-

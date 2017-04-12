@@ -20,4 +20,3 @@ fv.uneven(r=0.1, cf=c(-1000, -500, 0, 4000, 3500, 2000))
 \seealso{
 \code{\link{fv.simple}}
 }
-

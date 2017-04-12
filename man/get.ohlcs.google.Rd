@@ -26,4 +26,3 @@ Batch download stock prices from Google Finance (open, high, low, close, volume)
 
 \code{\link{get.ohlcs.yahoo}}
 }
-

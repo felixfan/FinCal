@@ -36,4 +36,3 @@ fv(0.07,10,1000,10)
 
 \code{\link{discount.rate}}
 }
-

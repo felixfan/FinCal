@@ -38,4 +38,3 @@ pv(r=0.05,n=20,fv=1000,pmt=10,type=1)
 
 \code{\link{discount.rate}}
 }
-

@@ -24,4 +24,3 @@ EPS(ni=10000,pd=1000,w=11000)
 
 \code{\link{was}}
 }
-

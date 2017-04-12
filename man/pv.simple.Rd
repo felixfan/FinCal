@@ -24,4 +24,3 @@ pv.simple(r=0.03,n=3,fv=1000)
 \seealso{
 \code{\link{pv}}
 }
-

@@ -20,4 +20,3 @@ r.perpetuity(pmt=4.5,pv=-75)
 \seealso{
 \code{\link{pv.perpetuity}}
 }
-

@@ -20,4 +20,3 @@ npm(ni=8000,rv=20000)
 \seealso{
 \code{\link{gpm}}
 }
-

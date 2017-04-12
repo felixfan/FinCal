@@ -20,4 +20,3 @@ bdy2mmy(bdy=0.045,t=120)
 \seealso{
 \code{\link{bdy}}
 }
-

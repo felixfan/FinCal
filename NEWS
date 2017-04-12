@@ -1,3 +1,7 @@
+FinCal 0.6.4
+================================================================
+add 'lower' and 'upper' to discount.rate, when uniroot return 'NA', change these two parameters to search smaller interval
+
 FinCal 0.6.3
 ================================================================
 can calculate negative irr now
@@ -64,7 +68,7 @@ Released 2013-Aug-13
 Methods for downloading historical stock prices from Yahoo finance and Google finance, technical analysis.
 
 Methods
-* add wpr, 
+* add wpr,
 * add geometric.mean
 * add harmonic.mean
 * add SFRatio
@@ -107,8 +111,8 @@ FinCal 0.1
 ================================================================
 Released 2013-July-16
 
-First official release of the FinCal R package. 
-Financial calculator for time value money. 
+First official release of the FinCal R package.
+Financial calculator for time value money.
 Tools for computational finance.
 
 Methods:

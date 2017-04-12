@@ -27,4 +27,3 @@ This function is the same as irr but can calculate negative value. This function
 \seealso{
 \code{\link{irr}}
 }
-

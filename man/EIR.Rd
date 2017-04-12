@@ -42,4 +42,3 @@ EIR(r=0.05,n=12,p=4)
 # monthly proportional interest rate which is equivalent to a simple annual interest
 EIR(r=0.05,p=12,type='p')
 }
-

@@ -24,4 +24,3 @@ total.d2e(td=6000,te=20000)
 
 \code{\link{financial.leverage}}
 }
-

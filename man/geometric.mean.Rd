@@ -15,4 +15,3 @@ Geometric mean return
 \examples{
 geometric.mean(r=c(-0.0934, 0.2345, 0.0892))
 }
-

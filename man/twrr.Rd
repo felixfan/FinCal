@@ -22,4 +22,3 @@ twrr(ev=c(120,260),bv=c(100,240),cfr=c(2,4))
 \seealso{
 \code{\link{hpr}}
 }
-

@@ -27,4 +27,3 @@ Technical analysts - Volume charts: show each period's volume as a vertical line
 
 \code{\link{get.ohlc.google}}
 }
-

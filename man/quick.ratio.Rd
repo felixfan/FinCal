@@ -26,4 +26,3 @@ quick.ratio(cash=3000,ms=2000,rc=1000,cl=2000)
 
 \code{\link{cash.ratio}}
 }
-

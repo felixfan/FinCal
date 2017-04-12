@@ -26,4 +26,3 @@ pv.annuity(r=0.0425,n=3,pmt=30000)
 \seealso{
 \code{\link{pv}}
 }
-

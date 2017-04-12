@@ -22,4 +22,3 @@ slde(cost=1200,rv=200,t=5)
 \seealso{
 \code{\link{ddb}}
 }
-

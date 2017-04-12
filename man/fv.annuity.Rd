@@ -26,4 +26,3 @@ fv.annuity(r=0.03,n=12,pmt=-1000,type=1)
 \seealso{
 \code{\link{fv}}
 }
-

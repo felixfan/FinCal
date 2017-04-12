@@ -24,4 +24,3 @@ s=c(11000,4400,-3000);m=c(12,9,4);was(ns=s,nm=m)
 
 \code{\link{diluted.EPS}}
 }
-

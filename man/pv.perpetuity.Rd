@@ -28,4 +28,3 @@ pv.perpetuity(r=0.1,pmt=1000)
 \seealso{
 \code{\link{r.perpetuity}}
 }
-

@@ -34,4 +34,3 @@ n.period(r=0.1,pv=-10000,fv=60000000,pmt=-50000,type=1)
 
 \code{\link{discount.rate}}
 }
-

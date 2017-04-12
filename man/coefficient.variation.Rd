@@ -20,4 +20,3 @@ coefficient.variation(sd=0.15,avg=0.39)
 \seealso{
 \code{\link{Sharpe.ratio}}
 }
-

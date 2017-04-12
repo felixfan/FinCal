@@ -24,4 +24,3 @@ mmy2hpr(mmy=0.04898,t=150)
 
 \code{\link{hpr}}
 }
-

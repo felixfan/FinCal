@@ -20,4 +20,3 @@ gpm(gp=1000,rv=20000)
 \seealso{
 \code{\link{npm}}
 }
-

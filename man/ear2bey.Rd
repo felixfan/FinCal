@@ -18,4 +18,3 @@ ear2bey(ear=0.08)
 \seealso{
 \code{\link{ear}}
 }
-

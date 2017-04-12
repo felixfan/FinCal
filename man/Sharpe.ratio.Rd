@@ -24,4 +24,3 @@ Sharpe.ratio(rp=0.038,rf=0.015,sd=0.07)
 
 \code{\link{SFRatio}}
 }
-

@@ -22,4 +22,3 @@ SFRatio(rp=0.09,rl=0.03,sd=0.12)
 \seealso{
 \code{\link{Sharpe.ratio}}
 }
-

@@ -45,4 +45,3 @@ diluted.EPS(ni=115600,pd=10000,cpd=10000,cdi=42000,tax=0.4,w=200000,cps=40000,cd
 
 \code{\link{was}}
 }
-

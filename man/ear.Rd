@@ -28,4 +28,3 @@ ear(0.04,365)
 
 \code{\link{ear2hpr}}
 }
-

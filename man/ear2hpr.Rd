@@ -24,4 +24,3 @@ ear2hpr(ear=0.05039,t=150)
 
 \code{\link{hpr}}
 }
-

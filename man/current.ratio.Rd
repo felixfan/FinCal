@@ -22,4 +22,3 @@ current.ratio(ca=8000,cl=2000)
 
 \code{\link{quick.ratio}}
 }
-

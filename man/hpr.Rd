@@ -26,4 +26,3 @@ hpr(ev=33,bv=30,cfr=0.5)
 
 \code{\link{hpr2mmy}}
 }
-

@@ -24,4 +24,3 @@ lt.d2e(ltd=8000,te=20000)
 
 \code{\link{financial.leverage}}
 }
-

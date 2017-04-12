@@ -20,4 +20,3 @@ r.continuous(0.03,4)
 \seealso{
 \code{\link{r.norminal}}
 }
-

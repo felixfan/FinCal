@@ -22,4 +22,3 @@ ear.continuous(0.03)
 
 \code{\link{r.norminal}}
 }
-

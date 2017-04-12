@@ -17,4 +17,3 @@ Computing Sampling error
 \examples{
 sampling.error(sm=0.45, mu=0.5)
 }
-

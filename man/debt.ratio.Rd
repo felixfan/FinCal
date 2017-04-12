@@ -24,4 +24,3 @@ debt.ratio(td=6000,ta=20000)
 
 \code{\link{financial.leverage}}
 }
-
