@@ -4,7 +4,7 @@
 \alias{discount.rate}
 \title{Computing the rate of return for each period}
 \usage{
-discount.rate(n, pv, fv, pmt, type = 0, lower = 1e-04, upper = 1)
+discount.rate(n, pv, fv, pmt, type = 0, lower = 1e-04, upper = 100)
 }
 \arguments{
 \item{n}{number of periods}
