@@ -18,8 +18,12 @@ n.period <- function(r,pv,fv,pmt,type=0){
   if(type != 0 && type !=1){
     print("Error: type should be 0 or 1!")
   }else{
-  n <- log(-1 * (fv*r-pmt* (1+r)^type)/(pv*r+pmt* (1+r)^type))/log(1+r)
-  return(n)
+    n <-  if (isTRUE(all.equal(r, 0.0))){
+      -1 * (fv+pv) / pmt
+    }else{
+      log(-1 * (fv*r-pmt* (1+r)^type)/(pv*r+pmt* (1+r)^type))/log(1+r)
+    }
+    return(n)
   }
 }
 
