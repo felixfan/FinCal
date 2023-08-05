@@ -1,8 +1,8 @@
 Package: FinCal
 Title: Time Value of Money, Time Series Analysis and Computational Finance
 Description: Package for time value of money calculation, time series analysis and computational finance.
-Version: 0.6.4
-Date: 2017-04-12
+Version: 0.6.5
+Date: 2023-08-05
 Author: Felix Yanhui Fan <nolanfyh@gmail.com>
 Imports:
     ggplot2,
