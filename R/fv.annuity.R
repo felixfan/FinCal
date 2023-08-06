@@ -14,7 +14,7 @@ fv.annuity <- function(r,n,pmt,type=0) {
   if(type != 0 && type !=1){
     print("Error: type should be 0 or 1!")
   }else{
-    fv = if (isTRUE(all.equal(r, 0.0))){
+    fv = if (isTRUE(all.equal(0.0, r))){
       pmt * n * (-1)
     }else{
       (pmt / r * ((1 + r)^n - 1))*(1+r)^type * (-1)
