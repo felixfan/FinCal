@@ -1,5 +1,7 @@
-Development version
+FinCal 0.7
 ================================================================
+Released 2026-Nov-02
+
 Fix single-cash-flow npv results (issue #5), FIFO/LIFO ending inventories, and
 antidilutive instrument selection in diluted.EPS.
 Correct yield.actual time-zero cash flows, expand searches within the compounding
