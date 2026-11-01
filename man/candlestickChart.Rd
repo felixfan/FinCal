@@ -9,9 +9,9 @@ candlestickChart(ohlc, start = NULL, end = NULL, main = "", ...)
 \arguments{
 \item{ohlc}{output from get.ohlc.yahoo or get.ohlc.google}
 
-\item{start}{start date to plot, if not specified, all date in ohlc will be included}
+\item{start}{inclusive start date to plot; if NULL, no lower date limit}
 
-\item{end}{end date to plot}
+\item{end}{inclusive end date to plot; if NULL, no upper date limit}
 
 \item{main}{an overall title for the plot}
 

@@ -4,8 +4,7 @@
 \alias{diluted.EPS}
 \title{diluted Earnings Per Share}
 \usage{
-diluted.EPS(ni, pd, cpd = 0, cdi = 0, tax = 0, w, cps = 0, cds = 0,
-  iss = 0)
+diluted.EPS(ni, pd, cpd = 0, cdi = 0, tax = 0, w, cps = 0, cds = 0, iss = 0)
 }
 \arguments{
 \item{ni}{net income}
@@ -28,6 +27,11 @@ diluted.EPS(ni, pd, cpd = 0, cdi = 0, tax = 0, w, cps = 0, cds = 0,
 }
 \description{
 diluted Earnings Per Share
+}
+\details{
+The supplied option, preferred-stock and debt classes are considered
+  in increasing order of incremental earnings per share. A class is included
+  only if it reduces earnings per share (or increases loss per share).
 }
 \examples{
 diluted.EPS(ni=115600,pd=10000,cdi=42000,tax=0.4,w=200000,cds=60000)

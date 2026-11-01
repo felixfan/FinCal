@@ -18,10 +18,18 @@ n.period <- function(r,pv,fv,pmt,type=0){
   if(type != 0 && type !=1){
     print("Error: type should be 0 or 1!")
   }else{
-    n <-  if (isTRUE(all.equal(0.0, r))){
+    n <-  if (r == 0){
       -1 * (fv+pv) / pmt
     }else{
-      log(-1 * (fv*r-pmt* (1+r)^type)/(pv*r+pmt* (1+r)^type))/log(1+r)
+      payment <- pmt * (1 + r)^type
+      denominator <- pv * r + payment
+      change <- -r * (fv + pv) / denominator
+      # log1p is accurate near a unit ratio; use the direct ratio away from
+      # one so a very small positive growth factor is not rounded down to zero.
+      log.growth <- log((payment - fv * r) / denominator)
+      near.one <- is.finite(change) & abs(change) < 0.5
+      log.growth[near.one] <- log1p(change[near.one])
+      log.growth / log1p(r)
     }
     return(n)
   }

@@ -18,6 +18,11 @@ get.ohlc.yahoo(symbol, start = "firstDay", end = "today", freq = "d")
 \description{
 Download stock prices from Yahoo Finance (open, high, low, close, volume, adjusted)
 }
+\details{
+The end date and frequency are applied even when start is
+  \code{"firstDay"}. This function uses Yahoo's legacy CSV service;
+  availability of that external service is outside the package's control.
+}
 \examples{
 # get.ohlc.yahoo(symbol="AAPL")
 # get.ohlc.yahoo(symbol="AAPL",start="2013-08-01",freq="d")

@@ -9,13 +9,18 @@ npv(r, cf)
 \arguments{
 \item{r}{discount rate, or the interest rate at which the amount will be compounded each period}
 
-\item{cf}{cash flow,the first cash flow is the initial outlay}
+\item{cf}{nonempty cash flow vector; the first cash flow is at time zero}
 }
 \description{
 Computing NPV, the PV of the cash flows less the initial (time = 0) outlay
 }
+\details{
+A single cash flow is returned unchanged because it occurs at time
+  zero. Appending zero payments does not change its value.
+}
 \examples{
 npv(r=0.12, cf=c(-5, 1.6, 2.4, 2.8))
+npv(r=0.1, cf=-100)
 }
 \seealso{
 \code{\link{pv.simple}}

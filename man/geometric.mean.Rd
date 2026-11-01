@@ -12,6 +12,10 @@ geometric.mean(r)
 \description{
 Geometric mean return
 }
+\details{
+Returns must be finite, nonempty, and at least -1. A total loss
+  in any period gives a geometric mean return of -1.
+}
 \examples{
 geometric.mean(r=c(-0.0934, 0.2345, 0.0892))
 }

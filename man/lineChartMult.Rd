@@ -18,6 +18,10 @@ lineChartMult(ohlcs, y = "close", main = "", ...)
 \description{
 Technical analysts - Line charts: show prices for each period as a continuous line for multiple stocks
 }
+\details{
+Each series retains its own dates, including when histories have
+  different lengths or non-overlapping trading dates.
+}
 \examples{
 # googapple <- get.ohlcs.yahoo(c("GOOG","AAPL"),start="2013-01-01"); 
 # lineChartMult(googapple)

@@ -14,6 +14,7 @@
 #'
 #' cogs(uinv=2,pinv=2,units=c(3,5),price=c(3,5),sinv=7,method="WAC")
 cogs <- function(uinv,pinv,units,price,sinv,method="FIFO"){
+  method <- match.arg(method, c("FIFO", "LIFO", "WAC"))
   n=length(units)
   m=length(price)
   costOfGoods=0
@@ -25,13 +26,13 @@ cogs <- function(uinv,pinv,units,price,sinv,method="FIFO"){
       if(sinv <= uinv){
         costOfGoods = sinv * pinv
         endingInventory = (uinv - sinv) * pinv
-        for(i in 1:n){
+        for(i in seq_len(n)){
           endingInventory = endingInventory + units[i] * price[i]
         }
       }else{
         costOfGoods = uinv * pinv
         sinv = sinv - uinv
-        for(i in 1:n){
+        for(i in seq_len(n)){
           if(sinv <= units[i]){
             costOfGoods = costOfGoods +sinv * price[i]
             endingInventory = (units[i] - sinv) * price[i]
@@ -42,7 +43,7 @@ cogs <- function(uinv,pinv,units,price,sinv,method="FIFO"){
               }
             }
             sinv=0
-            next
+            break
           }else{
             costOfGoods = costOfGoods +units[i] * price[i]
             sinv = sinv -units[i]
@@ -55,11 +56,14 @@ cogs <- function(uinv,pinv,units,price,sinv,method="FIFO"){
     }else if(method=="WAC"){
       endingInventory = uinv * pinv
       tu = uinv
-      for(i in 1:n){
+      for(i in seq_len(n)){
         endingInventory = endingInventory + units[i] * price[i]
         tu = tu + units[i]
       }
       if(tu >= sinv){
+        if(tu == 0 && sinv == 0){
+          return(list(costOfGoods=0, endingInventory=0))
+        }
         costOfGoods = endingInventory/tu*sinv
         endingInventory = endingInventory/tu*(tu-sinv)
       }else{
@@ -67,7 +71,7 @@ cogs <- function(uinv,pinv,units,price,sinv,method="FIFO"){
       }
       
     }else if(method=="LIFO"){
-      for(i in n:1){
+      for(i in rev(seq_len(n))){
         if(sinv <= units[i]){
           costOfGoods = costOfGoods +sinv * price[i]
           endingInventory = (units[i] - sinv) * price[i]
@@ -79,7 +83,7 @@ cogs <- function(uinv,pinv,units,price,sinv,method="FIFO"){
           }
           endingInventory = endingInventory + uinv * pinv
           sinv=0
-          next
+          break
         }else{
           costOfGoods = costOfGoods +units[i] * price[i]
           sinv = sinv -units[i]

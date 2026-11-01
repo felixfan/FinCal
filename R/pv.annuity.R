@@ -14,10 +14,10 @@ pv.annuity <- function(r, n, pmt, type=0) {
   if(type != 0 && type !=1){
     print("Error: type should be 0 or 1!")
   }else{
-    pv = if (isTRUE(all.equal(0.0, r))){
+    pv = if (r == 0){
       n * pmt * (-1)
     }else{
-      (pmt / r * (1 - 1 / (1 + r)^n))*(1 + r)^type * (-1)
+      pmt * (expm1(-n * log1p(r)) / r) * (1 + r)^type
     }
     return(pv)
   }

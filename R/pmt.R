@@ -19,10 +19,13 @@ pmt <- function(r,n,pv,fv,type=0){
   if(type != 0 && type !=1){
     print("Error: type should be 0 or 1!")
   }else{
-  pmt <-  if (isTRUE(all.equal(0.0, r))){
+  pmt <-  if (r == 0){
     (pv+fv)/n * (-1)
   }else{
-    (pv+fv/(1+r)^n)*r/(1-1/(1+r)^n) * (-1) * (1+r)^(-1 * type)
+    x <- n * log1p(r)
+    ifelse(x >= 0,
+           -(pv + fv * exp(-x)) * r / (-expm1(-x)),
+           -(pv * exp(x) + fv) * r / expm1(x)) / (1 + r)^type
   }
   return(pmt)
   }

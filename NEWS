@@ -1,5 +1,16 @@
 Development version
 ================================================================
+Fix single-cash-flow npv results (issue #5), FIFO/LIFO ending inventories, and
+antidilutive instrument selection in diluted.EPS.
+Correct yield.actual time-zero cash flows, expand searches within the compounding
+domain, and reject nonconverged or inaccurate results.
+Preserve dates for unequal stock histories, retain global warning settings, and
+correct candlestick fills and inclusive, independent date filters.
+Stabilize geometric means and small-rate annuity/payment/period calculations.
+Apply Yahoo end dates and frequencies when start="firstDay". The legacy external
+CSV service is unchanged; request handling is tested with local responses.
+Add regression tests for these 13 audit findings and numerical controls.
+
 Fix irr searches for negative returns by expanding in log gross returns within
 the domain r > -1. Validate cash flows and check the relative NPV residual before
 returning a rate; reject same-sign cash flows and unsuccessful searches.

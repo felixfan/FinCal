@@ -13,7 +13,6 @@
 #' # apple <- get.ohlc.google("AAPL");
 #' # volumeChart(apple)
 volumeChart <- function(ohlc,main="",...){
-  options(warn=-1)
   ohlc$date <- as.Date(ohlc$date,"%Y-%m-%d")
   g=ggplot(ohlc, aes_string(x='date',y='volume')) + geom_bar(stat="identity") + labs( title =main ) + labs(x="") + 
     theme(axis.text.x=element_text(angle=90))

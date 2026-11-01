@@ -14,11 +14,12 @@
 #' @param max_iter Maximum iterations for root finding (default: 100)
 #' @param tol Convergence tolerance (default: 1e-8)
 #'
-#' @return Annual yield as decimal (e.g., 0.0564 = 5.64%)
+#' @return Annual yield as decimal (e.g., 0.0564 = 5.64%), or NA with a warning
+#'   when a valid, converged solution cannot be found.
 #' 
 #' @details
 #' The 'amount' column in cf should represent cash flows received by the investor
-#' (positive values). The initial investment (pv) is specified separately as a 
+#' (positive values). The initial investment (pv) is specified separately as a
 #' positive number and should not be included in the cf data frame.
 #' 
 #' **Choosing the compounding convention:**
@@ -39,6 +40,13 @@
 #' \deqn{PV = \sum_{i=1}^{n} CF_i \times e^{-y \times t_i}}
 #' 
 #' Time periods are calculated using actual calendar days divided by 365.25.
+#' Cash flows on the investment date have time zero. Cash flows before the
+#' investment date are rejected. At least one later cash flow is required.
+#' The search expands in continuously compounded yield, preserving the valid
+#' discrete-yield domain y > -m. A result is accepted only after convergence and
+#' a relative present-value residual check with tolerance \code{tol}. Failed
+#' searches warn and return NA. Mixed-sign cash flows can have multiple yields;
+#' the search does not guarantee finding all or any of them.
 #' 
 #' @seealso \code{\link{irr}} for period-based IRR without dates
 #' @seealso \code{\link{npv}} for net present value calculation
@@ -100,8 +108,17 @@ yield.actual <- function(cf,
     stop("pv (present value) is required")
   }
   
-  if (pv <= 0) {
-    stop("pv must be positive")
+  if (!is.numeric(pv) || is.complex(pv) || length(pv) != 1L ||
+      !is.finite(pv) || pv <= 0) {
+    stop("pv must be a finite positive number")
+  }
+  if (!is.numeric(max_iter) || length(max_iter) != 1L ||
+      !is.finite(max_iter) || max_iter < 1 || max_iter > .Machine$integer.max ||
+      max_iter != floor(max_iter)) {
+    stop("max_iter must be a positive integer")
+  }
+  if (!is.numeric(tol) || length(tol) != 1L || !is.finite(tol) || tol <= 0) {
+    stop("tol must be a finite positive number")
   }
   
   # Handle different cf input formats
@@ -120,8 +137,11 @@ yield.actual <- function(cf,
     stop("cf must be a data frame with 'date' and 'amount' columns, or a named vector")
   }
   
+  if (!is.numeric(amounts) || is.complex(amounts)) {
+    stop("cash-flow amounts must be numeric")
+  }
   # Clean cash flows
-  valid_idx <- !is.na(amounts) & is.finite(amounts) & amounts != 0 & !is.na(dates)
+  valid_idx <- is.finite(amounts) & amounts != 0 & is.finite(as.numeric(dates))
   dates <- dates[valid_idx]
   amounts <- amounts[valid_idx]
   
@@ -141,92 +161,68 @@ yield.actual <- function(cf,
   } else {
     start_date <- as.Date(start_date)
   }
+  if (length(start_date) != 1L || !is.finite(as.numeric(start_date))) {
+    stop("start_date must be a single valid date")
+  }
   
   # Calculate time periods in years
   t_years <- as.numeric(difftime(dates, start_date, units = "days")) / 365.25
-  t_years <- pmax(t_years, 1/365.25)  # Minimum time period
-  
-  # Sanity check on cash flows
-  total_cash <- sum(amounts)
-  if (total_cash < pv * 0.5) {
-    warning("Total cash flows (", round(total_cash, 2), 
-            ") are less than 50% of present value (", round(pv, 2), 
-            "). Yield may be very negative.")
+  if (any(t_years < 0)) {
+    stop("cash-flow dates must not precede start_date")
   }
-  
-  # Yield function: PV of cash flows = pv
-  if (compounding == "continuous") {
-    # Continuous compounding: PV = CF * e^(-y*t)
-    yield_function <- function(y) {
-      pv_calc <- sum(amounts * exp(-y * t_years))
-      return(pv_calc - pv)
-    }
-  } else {
-    # Discrete compounding: PV = CF / (1 + y/m)^(m*t)
-    yield_function <- function(y) {
-      if (y <= -comp_freq) return(Inf)  # Prevent invalid rates
-      
-      pv_calc <- sum(amounts / (1 + y / comp_freq)^(comp_freq * t_years))
-      return(pv_calc - pv)
-    }
-  }
-  
-  # Find bracketing interval
-  lower <- -0.10  # Allow negative yields (rare but possible)
-  upper <- 0.50   # Max 50% yield
-  iter <- 0
-  
-  while (iter < max_iter) {
-    lower_val <- yield_function(lower)
-    upper_val <- yield_function(upper)
-    
-    # Check validity
-    if (!is.finite(lower_val) || !is.finite(upper_val)) {
-      warning("Yield function produced non-finite values")
-      return(NA_real_)
-    }
-    
-    # Check if root exists in interval (opposite signs)
-    if (lower_val * upper_val < 0) {
-      break
-    }
-    
-    # Expand interval
-    lower <- lower - 0.05
-    upper <- upper + 0.05
-    iter <- iter + 1
-    
-    # Prevent unreasonable intervals
-    if (lower < -0.95 || upper > 2.0) {
-      warning("Could not find valid yield interval. Check inputs.")
-      return(NA_real_)
-    }
-  }
-  
-  if (iter == max_iter) {
-    warning("Yield function does not cross zero after interval expansion")
+  if (!any(t_years > 0)) {
+    warning("Yield requires at least one cash flow after start_date")
     return(NA_real_)
   }
-  
-  # Solve for yield using root finding
+
+  # In continuously compounded yield x, every discount factor is exp(-x*t).
+  # Include the investment as a negative time-zero term and normalize the terms
+  # in log space. Signs and relative residuals survive extreme monetary scales.
+  log.amounts <- log(abs(c(amounts, -pv)))
+  signs <- sign(c(amounts, -pv))
+  times <- c(t_years, 0)
+  relative.pv <- function(x) {
+    logs <- log.amounts - x * times
+    terms <- signs * exp(logs - max(logs))
+    sum(terms) / sum(abs(terms))
+  }
+  if (relative.pv(0) == 0) return(0)
+
+  if (compounding == "continuous") {
+    limit <- .Machine$double.xmax / (2 * max(1, max(times)))
+    limits <- c(-limit, limit)
+  } else {
+    limits <- comp_freq * c(log(.Machine$double.eps / 2),
+                           log(.Machine$double.xmax) - log(comp_freq))
+  }
+
   tryCatch({
-    result <- uniroot(
-      yield_function, 
-      interval = c(lower, upper), 
-      tol = tol,
-      maxiter = max_iter
-    )
-    
-    yield <- result$root
-    
-    # Sanity check result
-    if (yield < -0.50 || yield > 1.0) {
-      warning("Calculated yield of ", round(yield * 100, 2), 
-              "% seems unrealistic. Verify inputs.")
+    interval <- c(-1, 1)
+    values <- vapply(interval, relative.pv, numeric(1))
+    iter <- 0L
+    while (sign(values[1]) == sign(values[2]) && all(values != 0)) {
+      expanded <- pmax(limits[1], pmin(limits[2], 2 * interval))
+      if (identical(expanded, interval) || iter >= max_iter) {
+        stop("No sign change found for a finite yield in the valid domain")
+      }
+      interval <- expanded
+      values <- vapply(interval, relative.pv, numeric(1))
+      iter <- iter + 1L
     }
-    
-    return(yield)
-    
+    x <- uniroot(relative.pv, interval=interval, f.lower=values[1],
+                 f.upper=values[2], check.conv=TRUE, maxiter=max_iter,
+                 tol=min(tol, 1e-12) / max(1, max(times)))$root
+    yield <- if (compounding == "continuous") x else comp_freq * expm1(x / comp_freq)
+    if (!is.finite(yield) ||
+        (compounding != "continuous" && yield <= -comp_freq)) {
+      stop("Yield is outside the finite representable domain")
+    }
+    converted <- if (compounding == "continuous") yield else
+      comp_freq * log1p(yield / comp_freq)
+    if (abs(relative.pv(converted)) > tol) {
+      stop("Present-value residual exceeds tolerance")
+    }
+    yield
   }, error = function(e) {
     warning("Yield calculation failed: ", e$message)
     return(NA_real_)
