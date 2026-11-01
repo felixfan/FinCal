@@ -1,3 +1,11 @@
+Development version
+================================================================
+Fix irr searches for negative returns by expanding in log gross returns within
+the domain r > -1. Validate cash flows and check the relative NPV residual before
+returning a rate; reject same-sign cash flows and unsuccessful searches.
+Add IRR regression tests covering negative and extreme rates, cash-flow scaling,
+invalid inputs, and cash flows without a root. Document multiple-root limitations.
+
 FinCal 0.6.4
 ================================================================
 add 'lower' and 'upper' to discount.rate, when uniroot return 'NA', change these two parameters to search smaller interval

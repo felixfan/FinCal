@@ -7,13 +7,28 @@
 irr(cf)
 }
 \arguments{
-\item{cf}{cash flow,the first cash flow is the initial outlay}
+\item{cf}{finite numeric cash flows, with the initial outlay at time zero.
+At least one positive and one negative cash flow are required.}
+}
+\value{
+A finite internal rate of return strictly greater than -1.
 }
 \description{
 Computing IRR, the internal rate of return
 }
+\details{
+The search expands in log(1 + r), within the range of finite rates
+  strictly greater than -1. The returned rate must have an absolute NPV no
+  larger than 1e-8 times the sum of the absolute discounted cash flows.
+  This relative residual is evaluated using scaled discounted cash flows to
+  avoid overflow and underflow. An error is raised if no sign-changing bracket
+  is found or the residual check fails. Cash flows with multiple sign changes
+  can have multiple IRRs; this search is not guaranteed to find any or all of
+  them, and does not establish uniqueness.
+}
 \examples{
-# irr(cf=c(-5, 1.6, 2.4, 2.8))
+irr(cf=c(-5, 1.6, 2.4, 2.8))
+irr(cf=c(-100, 40))
 }
 \seealso{
 \code{\link{pv.uneven}}
