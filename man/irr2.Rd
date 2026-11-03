@@ -2,37 +2,61 @@
 % Please edit documentation in R/irr2.R
 \name{irr2}
 \alias{irr2}
-\title{Computing IRR, the internal rate of return}
+\title{Computing IRR within a specified interval}
 \usage{
-irr2(cf, cutoff = 0.1, from = -1, to = 10, step = 1e-06)
+irr2(cf, cutoff = NULL, from = -1, to = 10, step = 1e-06, tol = 1e-08)
 }
 \arguments{
-\item{cf}{cash flow,the first cash flow is the initial outlay}
+\item{cf}{finite numeric cash flows, with the initial outlay at time zero.
+At least one positive and one negative cash flow are required.}
 
-\item{cutoff}{absolute NPV tolerance, in the same units as \code{cf}. It is
-not a tolerance on the returned rate: if the cash flows are rescaled,
-rescale \code{cutoff} by the same factor.}
+\item{cutoff}{NULL (default) selects scale-independent root finding. A
+positive number selects the legacy absolute NPV tolerance, in the same
+units as \code{cf}; rescale it with the cash flows. Numeric cutoffs are not
+tolerances on the returned rate.}
 
-\item{from}{smallest irr to try}
+\item{from}{lower search bound, at least -1. The boundary -1 itself is excluded.}
 
-\item{to}{largest irr to try}
+\item{to}{finite upper search bound, greater than -1 and not less than from.}
 
-\item{step}{increment of the irr}
+\item{step}{positive rate-grid spacing. In the default mode it is used only
+if endpoint and coarse-grid bracketing fail; it does not set root accuracy.
+With a numeric cutoff it sets the legacy search grid.}
+
+\item{tol}{relative NPV tolerance for the default mode, between 0 and 1.}
+}
+\value{
+One finite rate strictly greater than -1 within the search bounds.
 }
 \description{
-This function is the same as irr but can calculate negative value. This function may take a very long time. You can use larger cutoff and larger step to get a less precision irr first. Then based on the result, change from and to, to narrow down the interval, and use a smaller step to get a more precision irr.
+Finds one internal rate of return in a bounded interval. By
+  default a bracketed solver refines the rate and checks a relative NPV
+  residual. An explicit numeric cutoff selects the original grid search.
 }
 \details{
-Rates from \code{from} to \code{to} are tried in steps of
-  \code{step}, and the first rate with \code{abs(NPV) < cutoff} is returned.
-  If \code{cutoff} is large relative to the cash flows, that rate can be far
-  from the IRR: \code{irr2(c(-1, 1.1))} returns about 1e-06 rather than 0.1.
-  If \code{cutoff} is small, every rate tried can fail the test even when an
-  IRR lies between two of them, so a smaller \code{step} may be needed too.
+With \code{cutoff=NULL}, searches stay above -1 and refine a
+  sign-changing bracket rather than requiring the root to lie on the grid.
+  The returned rate must satisfy \code{abs(NPV) / sum(abs(discounted cash
+  flows)) <= tol}, evaluated using scaled terms to avoid overflow. Multiplying
+  all cash flows by a nonzero constant does not change this criterion.
+
+  A numeric \code{cutoff} retains the original behavior: return the first
+  rate on \code{seq(from, to, by=step)} above -1 with \code{abs(NPV) < cutoff}.
+  A loose absolute cutoff can return a rate far from the IRR, and a tight one
+  can miss a root between grid points. Omit cutoff to use refined root finding.
+
+  The default mode returns one root, not necessarily the lowest. Narrow the
+  interval to select among multiple IRRs. Bracketing does not guarantee finding
+  roots that touch zero without changing sign, or multiple roots between the
+  same adjacent search points. Fallback and legacy scans can be slow for wide
+  intervals with a tiny step. A failed search raises an error.
 }
 \examples{
-# irr2(cf=c(-5, 1.6, 2.4, 2.8))
-# irr2(cf=c(-200, 50, 60, -70, 30, 20))
+irr2(c(-1, 1.1))
+irr2(c(-100, 110.05), from=0, to=0.2, step=0.001)
+irr2(c(-100, 230, -132), from=0.05, to=0.15)
+# Explicit cutoff keeps the original absolute-tolerance grid search:
+irr2(c(-100, 110), cutoff=1e-6, from=0, to=0.2, step=0.001)
 }
 \seealso{
 \code{\link{irr}}

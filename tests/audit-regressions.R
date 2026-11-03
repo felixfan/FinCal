@@ -155,28 +155,4 @@ equal(n.period(1e-9,-1,2,0)/1e9,log(2),tolerance=1e-8)
 equal(n.period(-0.1,-100,100*0.9^500,0),500)
 equal(pmt(-0.2,10000,-1,100),-20)
 
-# F13: clone the transport environment so real Yahoo is never contacted.
-transport <- new.env(parent=asNamespace("FinCal"))
-transport$requests <- character()
-transport$read.csv <- function(file,...) {
-  transport$requests <- c(transport$requests,file)
-  data.frame(Date=c("2025-01-02","2025-01-01"),Open=1,High=2,Low=0,
-             Close=1,Volume=10,Adj.Close=1)
-}
-single <- get.ohlc.yahoo; environment(single) <- transport
-batch <- get.ohlcs.yahoo; environment(batch) <- transport
-for (start in c("firstDay","2024-02-03")) {
-  for (frequency in c("d","w","m")) {
-    result <- single("AAPL",start=start,end="2025-01-01",freq=frequency)
-    equal(result$date,c("2025-01-01","2025-01-02"))
-    url <- tail(transport$requests,1)
-    stopifnot(grepl(paste0("&g=",frequency),url,fixed=TRUE),
-              grepl("&d=0&e=01&f=2025",url,fixed=TRUE))
-    if (start != "firstDay") stopifnot(grepl("&a=1&b=03&c=2024",url,fixed=TRUE))
-  }
-}
-batch(c("AAPL","MSFT"),end="2025-01-01",freq="m")
-stopifnot(all(grepl("&g=m",tail(transport$requests,2),fixed=TRUE)),
-          all(grepl("&f=2025",tail(transport$requests,2),fixed=TRUE)))
-equal(batch(character()),list())
-fails(single("AAPL",start="2026-01-01",end="2025-01-01"))
+# F13: Yahoo request, date and frequency cases are maintained in yahoo.R.
