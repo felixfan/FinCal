@@ -1,3 +1,15 @@
+Development version (0.7.0.9000)
+================================================================
+Make irr2 use scale-independent, bracket-refined root finding by default
+(cutoff=NULL). Roots between grid points can now be found without tightening
+step. Numeric cutoff explicitly retains the absolute-tolerance grid search.
+Validate rates and cash flows, exclude the -1 boundary, check relative NPV
+residuals, and stream fallback grids in bounded chunks. Document how to select
+among multiple IRRs with search bounds and retain the bracketing limitations.
+Replace the legacy Yahoo CSV path with the HTTPS chart service. Preserve the
+existing OHLC output columns, include requested boundary dates, use exchange
+time zones and first-trade metadata, and support daily/weekly/monthly requests.
+
 FinCal 0.7
 ================================================================
 Released 2026-Nov-02

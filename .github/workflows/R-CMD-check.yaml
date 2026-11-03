@@ -5,6 +5,11 @@ on:
     branches: [master]
   pull_request:
   workflow_dispatch:
+    inputs:
+      live_yahoo:
+        description: Also verify a live Yahoo history request
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -33,6 +38,10 @@ jobs:
           archives=(FinCal_*.tar.gz)
           R CMD check --no-manual --no-vignettes "${archives[0]}"
           grep -Fq 'Status: OK' FinCal.Rcheck/00check.log
+      - name: Verify live Yahoo request
+        if: github.event_name == 'workflow_dispatch' && inputs.live_yahoo
+        run: |
+          Rscript -e 'library(FinCal, lib.loc="FinCal.Rcheck"); d <- get.ohlc.yahoo("AAPL", start=as.character(Sys.Date()-10), end=as.character(Sys.Date()-1)); stopifnot(nrow(d)>0, any(is.finite(d$close)), all(d$date >= as.character(Sys.Date()-10)), all(d$date <= as.character(Sys.Date()-1))); print(d)'
       - name: Upload package and validation logs
         if: always()
         uses: actions/upload-artifact@v7

@@ -19,8 +19,8 @@ get.ohlcs.yahoo(symbols, start = "firstDay", end = "today", freq = "d")
 Batch download stock prices from Yahoo Finance (open, high, low, close, volume, adjusted)
 }
 \details{
-The end date and frequency are applied to every symbol, including
-  when start is \code{"firstDay"}. Uses Yahoo's legacy CSV service.
+Uses the same HTTPS chart service, inclusive dates and exchange
+  time-zone handling as \code{get.ohlc.yahoo} for each symbol.
 }
 \examples{
 # get.ohlcs.yahoo(symbols=c("AAPL","GOOG","SPY"),freq="d")
