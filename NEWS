@@ -1,5 +1,7 @@
-Development version (0.7.0.9000)
+FinCal 0.7.1
 ================================================================
+Released 2026-Nov-03
+
 Make irr2 use scale-independent, bracket-refined root finding by default
 (cutoff=NULL). Roots between grid points can now be found without tightening
 step. Numeric cutoff explicitly retains the absolute-tolerance grid search.
